@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Regulatory Ecosystem | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 3, Lesson 7 of the Maritime Operations &amp; Industry Fundamentals curriculum: No single organization runs shipping's safety and compliance system. This lesson maps the five bodies that each play one distinct part — and how their roles fit together.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 3 · Lesson 7 · 3 hours Contact</span>
+    <h1>The Regulatory Ecosystem</h1>
+    <p class="tagline">No single organization runs shipping's safety and compliance system. This lesson maps the five bodies that each play one distinct part — and how their roles fit together.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">The IMO</a>
+    <a href="#s2" data-section="s2">Flag States</a>
+    <a href="#s3" data-section="s3">Port State Control</a>
+    <a href="#s4" data-section="s4">Classification Societies</a>
+    <a href="#s5" data-section="s5">P&amp;I Clubs &amp; Insurers</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Shipping is one of the most internationally regulated industries in the world, and yet no single global regulator inspects every ship, licenses every crew member, or insures every cargo. Instead, oversight is split across five distinct kinds of organizations, each with a different source of authority and a different job: a UN body that writes the rules, a country that enforces them on the vessels flying its flag, a network of foreign-port inspectors who catch what the flag state misses, a private technical body that certifies the ship itself is soundly built, and a mutual insurer that covers what happens when something still goes wrong.</p>
+      <p>This lesson introduces each of the five in turn — roles, not audit checklists — so that when Lesson 8 covers the actual conventions these bodies administer, you already know who does what.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Think of how a car actually gets onto the road safely: a national government writes vehicle safety standards, a state issues the registration and title, an inspection station checks roadworthiness periodically, an independent engineering body might certify a specific safety feature, and an insurer covers the financial risk if something goes wrong despite all of that. No single one of those five does the whole job — and neither does any single body in shipping.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Explain the IMO's role as the United Nations body that sets global shipping standards.</li>
+        <li>Describe a flag state's role and legal responsibility for vessels registered under it.</li>
+        <li>Explain port state control's role as a safety net for inconsistent flag-state enforcement.</li>
+        <li>Describe what a classification society does and what a class certificate represents.</li>
+        <li>Explain what P&I clubs and hull insurers cover, and how that differs from classification.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🏛️</span>
+      <h2>The IMO: Where the Rules Come From</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>The <dfn id="def-imo">International Maritime Organization (IMO)</dfn> is a specialized agency of the United Nations, headquartered in London, responsible for developing and adopting international standards for the safety, security, and environmental performance of international shipping. The IMO itself does not own ships, inspect ships, or punish violators directly — its output is <dfn id="def-convention">conventions</dfn> (the treaties covered in depth in Lesson 8) that member states agree to adopt and enforce through their own national law.</p>
+    <p>Technical work happens through IMO committees — most importantly the <dfn id="def-msc">Maritime Safety Committee (MSC)</dfn>, which handles safety-related conventions like SOLAS, and the <dfn id="def-mepc">Marine Environment Protection Committee (MEPC)</dfn>, which handles environmental conventions like MARPOL. Nearly every country with a significant maritime interest is an IMO member state, which is exactly what gives IMO conventions their practical, near-universal reach despite the IMO having no direct enforcement power of its own.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Learners sometimes assume the IMO functions like a global coast guard. Correct this early: the IMO writes and adopts standards; enforcement is delegated entirely to member states acting as flag states, covered next.</p></div>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🏳️</span>
+      <h2>Flag States: Where Enforcement Legally Sits</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>As introduced in Lesson 2, every commercial vessel is registered under one country's flag, and that <dfn id="def-flag-state">flag state</dfn> bears the primary legal responsibility for ensuring the vessel complies with the international conventions its government has ratified. In practice, this means the flag state issues (or authorizes the issuance of) the vessel's statutory certificates — documents proving compliance with SOLAS, MARPOL, and other conventions — and is legally accountable if a vessel under its flag fails to meet those standards.</p>
+    <p>Flag states vary enormously in how directly they carry out this responsibility. A large, well-resourced maritime administration might conduct its own surveys directly; many others, including most open registries, formally delegate day-to-day survey and certification work to classification societies acting as <dfn id="def-recognized-org">Recognized Organizations (ROs)</dfn> — a relationship Section 4 explains in more detail. The flag state remains legally responsible either way; delegation changes who does the technical work, not who is accountable for the outcome.</p>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🔍</span>
+      <h2>Port State Control: The Safety Net</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p><dfn id="def-psc">Port state control (PSC)</dfn> exists because flag-state enforcement isn't perfectly consistent worldwide — some flag states have more resources and stricter oversight than others. Under PSC, the country a ship is <em>visiting</em> (not the flag state) has the right to inspect a foreign-flagged vessel calling at its ports for compliance with international conventions, and to detain the vessel if serious deficiencies are found, regardless of what flag it flies.</p>
+    <p>PSC inspections are coordinated through regional agreements — most notably the <dfn id="def-paris-mou">Paris MOU</dfn> covering Europe and the North Atlantic, and the <dfn id="def-tokyo-mou">Tokyo MOU</dfn> covering the Asia-Pacific region — which share inspection data and maintain public performance records for both individual vessels and entire flag states, creating real reputational and commercial pressure on flag states with poor safety records. PSC is explicitly a safety net, not a substitute for flag-state responsibility: it catches problems after the fact, at whatever port a ship happens to visit next, rather than preventing them at the source.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A bulk carrier flagged to a small, under-resourced registry arrives at a European port with an expired lifeboat certification and corroded hull plating that should have been caught at its last flag-state survey. Paris MOU port state control inspectors identify the deficiencies during a routine inspection, detain the vessel until repairs are made and certification renewed, and record the detention publicly — adding to that flag state's detention statistics and making every subsequent PSC inspection of that flag's vessels worldwide more likely to be selected for extra scrutiny.</p></div>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📐</span>
+      <h2>Classification Societies: Certifying the Ship Itself</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>A <dfn id="def-class-society">classification society</dfn> — familiar names include ABS, DNV, Lloyd's Register, and ClassNK — is a private, technical, non-governmental organization that sets structural and engineering standards for ship design and construction, and surveys vessels throughout their operating life to confirm they continue to meet those standards. A vessel that passes survey is issued a <dfn id="def-class-certificate">class certificate</dfn>, and "being in class" is a near-universal commercial requirement — insurers, charterers, and port authorities all expect it, even though classification itself isn't an IMO convention.</p>
+    <p>As Section 2 mentioned, many flag states formally authorize classification societies to act as <dfn>Recognized Organizations</dfn>, performing statutory surveys and issuing statutory certificates on the flag state's behalf, in addition to the society's own separate class certification. This dual role — private technical certifier and, often simultaneously, delegated government surveyor — is one of the more distinctive features of how maritime regulation actually works in practice, compared to most other regulated industries.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>A classification society functions something like an independent structural engineer who both certifies a building meets a private industry standard and, in many jurisdictions, is also authorized to sign off on the government's own building-code inspection \u2014 two related but distinct jobs, performed by the same qualified inspector.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">💰</span>
+      <h2>P&amp;I Clubs &amp; Insurers</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Classification certifies that a ship is soundly built; it says nothing about who pays when something goes wrong anyway. <dfn id="def-hull-insurance">Hull and machinery insurance</dfn> covers physical damage to the vessel itself — collision damage, grounding damage, machinery breakdown — much like standard property insurance. <dfn id="def-pandi">Protection and Indemnity (P&amp;I) clubs</dfn> cover a different category entirely: third-party liabilities such as cargo damage claims, pollution cleanup costs, crew injury or illness, and wreck removal — often the largest financial exposures a shipowner faces, and frequently uncapped in scale for a serious pollution incident.</p>
+    <p>P&amp;I clubs are structured as <dfn id="def-mutual">mutual associations</dfn> — owned by their shipowner members collectively, rather than by outside shareholders — who pool risk and, when claims are unusually large across the whole membership in a given year, can be assessed additional contributions ("calls") to cover the shortfall. This mutual structure is different from a conventional commercial insurer and reflects P&amp;I's origins in shipowners banding together specifically because commercial insurers of the era wouldn't cover some of the liabilities they faced.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Learners frequently conflate classification with insurance. Reinforce the distinction explicitly: class certifies the ship is built and maintained to a technical standard; insurance (hull or P&I) pays out when a loss happens regardless of how well-built the ship was.</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Body to Its Role</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each body below, select the role it plays in the maritime regulatory ecosystem. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Body</th><th scope="col">Role</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="imo">
+                <td>UN agency that writes and adopts international shipping conventions</td>
+                <td>
+                  <select aria-label="role for the UN agency writing conventions">
+                    <option value="">— Select —</option>
+                    <option value="imo">IMO</option>
+                    <option value="flag">Flag state</option>
+                    <option value="psc">Port state control</option>
+                    <option value="class">Classification society</option>
+                    <option value="pandi">P&I club</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="flag">
+                <td>Country of registration bearing primary legal responsibility for a vessel's compliance</td>
+                <td>
+                  <select aria-label="role for the country of registration">
+                    <option value="">— Select —</option>
+                    <option value="imo">IMO</option>
+                    <option value="flag">Flag state</option>
+                    <option value="psc">Port state control</option>
+                    <option value="class">Classification society</option>
+                    <option value="pandi">P&I club</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="psc">
+                <td>Foreign-port inspection acting as a safety net for inconsistent flag-state enforcement</td>
+                <td>
+                  <select aria-label="role for foreign-port inspection">
+                    <option value="">— Select —</option>
+                    <option value="imo">IMO</option>
+                    <option value="flag">Flag state</option>
+                    <option value="psc">Port state control</option>
+                    <option value="class">Classification society</option>
+                    <option value="pandi">P&I club</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="class">
+                <td>Private technical body certifying a ship's structural soundness throughout its life</td>
+                <td>
+                  <select aria-label="role for certifying structural soundness">
+                    <option value="">— Select —</option>
+                    <option value="imo">IMO</option>
+                    <option value="flag">Flag state</option>
+                    <option value="psc">Port state control</option>
+                    <option value="class">Classification society</option>
+                    <option value="pandi">P&I club</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="pandi">
+                <td>Mutual insurer covering third-party liabilities like pollution and cargo claims</td>
+                <td>
+                  <select aria-label="role for covering third-party liabilities">
+                    <option value="">— Select —</option>
+                    <option value="imo">IMO</option>
+                    <option value="flag">Flag state</option>
+                    <option value="psc">Port state control</option>
+                    <option value="class">Classification society</option>
+                    <option value="pandi">P&I club</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: One Regulator Is Never Enough</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>Toggle each body below to see what happens if it is removed from the ecosystem — and why the industry ended up with five separate, overlapping layers instead of one.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Oversight layers">
+          <button type="button" class="sim-toggle" data-conn="flag" aria-pressed="false">Add flag-state enforcement</button>
+          <button type="button" class="sim-toggle" data-conn="psc" aria-pressed="false">Add port state control</button>
+          <button type="button" class="sim-toggle" data-conn="classsoc" aria-pressed="false">Add classification surveys</button>
+          <button type="button" class="sim-toggle" data-conn="pandi" aria-pressed="false">Add P&amp;I / insurance coverage</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Gaps Left Uncovered</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> with only the IMO's conventions written on paper and no other layer active, almost nothing actually gets checked or enforced in practice. Add layers below to see gaps close.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="c" data-fb-correct="The IMO writes and adopts conventions; enforcement is delegated to member states acting as flag states, and certification is handled by classification societies." data-fb-incorrect="Direct inspection, insurance, and structural certification are handled by other bodies (flag states/PSC, P&I clubs, and classification societies respectively) \u2014 the IMO's role is writing and adopting conventions.">
+        <div class="q-stem"><span class="q-num">Q1.</span>What is the IMO's primary role in maritime regulation?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> Directly inspecting every commercial vessel worldwide</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> Insuring shipowners against third-party liability</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> Developing and adopting international conventions that member states enforce through national law</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> Certifying individual ships' structural soundness</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Flag states bear the primary legal responsibility, even when they delegate survey work to classification societies acting as Recognized Organizations." data-fb-incorrect="Port states, classification societies, and P&I clubs each play a role, but primary legal responsibility sits with the flag state.">
+        <div class="q-stem"><span class="q-num">Q2.</span>Who bears primary legal responsibility for a vessel's compliance with international conventions?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> The flag state under which the vessel is registered</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> The port state where the vessel most recently called</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> The classification society that surveys the vessel</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> The P&I club insuring the vessel</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="PSC exists specifically because flag-state rigor varies; a visited port's independent inspection can catch what the flag state missed." data-fb-incorrect="PSC doesn't replace flag states, is run by port countries (not the IMO), and specifically applies to foreign-flagged vessels visiting a port \u2014 its purpose is catching inconsistent flag-state enforcement.">
+        <div class="q-stem"><span class="q-num">Q3.</span>Why does port state control exist as a distinct layer from flag-state enforcement?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> It replaces the need for flag states entirely</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> It only applies to a vessel's own flag state, never foreign ports</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> It is operated directly by the IMO</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> Flag-state enforcement isn't perfectly consistent worldwide, so visited ports provide an independent safety-net check</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="A class certificate confirms structural and engineering compliance with the classification society's own technical standards, verified through ongoing survey." data-fb-incorrect="Insurance, flag registration, and IMO approval are each separate matters \u2014 class certification is specifically about structural and engineering standards.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What does a classification society's "class certificate" actually represent?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> Proof the vessel is insured against pollution liability</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Confirmation the vessel meets the society's structural and engineering standards, verified through survey</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> Legal registration of the vessel under a flag state</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Approval from the IMO to operate internationally</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Hull insurance is about damage to the ship itself; P&I is about liabilities to others \u2014 cargo owners, injured crew, pollution victims, and similar third parties." data-fb-incorrect="The real distinction is physical damage to the vessel (hull insurance) versus third-party liability (P&I) \u2014 not a crew/cargo split, and P&I isn't passenger-vessel-specific.">
+        <div class="q-stem"><span class="q-num">Q5.</span>What is the key difference between hull insurance and a P&I club's coverage?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> Hull insurance covers crew injuries; P&I covers cargo damage only</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> There is no meaningful difference between the two</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> Hull insurance covers physical damage to the vessel itself; P&I covers third-party liabilities like pollution, cargo claims, and injury</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> P&I clubs only exist for passenger vessels</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner write a short paragraph describing which of this lesson's five bodies they would contact for each of three scenarios: (1) a ship's structural certificate has expired, (2) a foreign port has found serious safety deficiencies, (3) a cargo owner is claiming compensation for damaged goods. This confirms the five roles are distinguishable in practice, not just in definition.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.imo.org/en/About/Pages/Default.aspx" target="_blank" rel="noopener noreferrer">IMO — About the Organization</a> — the IMO's own explanation of its structure, committees, and member states.</li>
+      <li><a href="https://www.parismou.org/" target="_blank" rel="noopener noreferrer">Paris MOU on Port State Control</a> — the regional port state control agreement referenced in this lesson, with public vessel and flag performance data.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson06.html">← Lesson 6: Ship Construction &amp; Systems Overview</a>
+    <a class="nav-btn" href="lesson08.html">Lesson 8: Key Maritime Conventions →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">The IMO</a></li>
+      <li><a href="#s2">Flag States</a></li>
+      <li><a href="#s3">Port State Control</a></li>
+      <li><a href="#s4">Classification Societies</a></li>
+      <li><a href="#s5">P&amp;I Clubs &amp; Insurers</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Explain the IMO's role as the United Nations body that sets global shipping standards.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Describe a flag state's role and legal responsibility for vessels registered under it.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Explain port state control's role as a safety net for inconsistent flag-state enforcement.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Describe what a classification society does and what a class certificate represents.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Explain what P&I clubs and hull insurers cover, and how that differs from classification.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">IMO</span></a><span class="glossary-def">The International Maritime Organization, a UN agency that develops and adopts international shipping conventions.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Flag State</span></a><span class="glossary-def">The country under whose registration a vessel operates, bearing primary legal responsibility for its compliance.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Port State Control (PSC)</span></a><span class="glossary-def">Inspection by a visited country of foreign-flagged vessels, acting as a safety net for inconsistent flag-state enforcement.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Classification Society</span></a><span class="glossary-def">A private technical body that sets structural standards and surveys vessels, issuing class certificates.</span></li>
+      <li><a href="#s5"><span class="glossary-term">P&amp;I Club</span></a><span class="glossary-def">A mutual insurer covering third-party liabilities such as pollution, cargo damage, and crew injury.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson06.html">← Previous: Lesson 6: Ship Construction &amp; Systems Overview</a>
+      <a href="lesson08.html">Next: Lesson 8: Key Maritime Conventions →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 7 · Day 3 · The Regulatory Ecosystem<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { flag: false, psc: false, classsoc: false, pandi: false };
+  var simMessages = {
+    flag: "Flag-state enforcement added: someone is now legally responsible for confirming each vessel under this flag actually meets the conventions the flag state has ratified.",
+    psc: "Port state control added: foreign ports can now catch vessels whose flag state missed something, adding a second, independent check.",
+    classsoc: "Classification surveys added: an independent technical body is now continuously verifying the ship's structural and mechanical condition, not just paperwork compliance.",
+    pandi: "P&amp;I and insurance coverage added: even after every prevention layer, there is now a financial mechanism to cover injury, pollution, and liability claims if something still goes wrong."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> with only the IMO's conventions written on paper and no other layer active, almost nothing actually gets checked or enforced in practice. Add layers below to see gaps close.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four layers are now active alongside the IMO's conventions. No single layer is airtight on its own \u2014 flag states vary in rigor, PSC only catches what happens to visit that port, class surveys are periodic, and insurance only pays after a loss \u2014 but together they cover most of the gaps any single layer would leave open. This overlapping-layers design, not any one perfect regulator, is how maritime safety and compliance actually works.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

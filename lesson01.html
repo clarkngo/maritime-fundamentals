@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Ships &amp; Vessel Types | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 1, Lesson 1 of the Maritime Operations &amp; Industry Fundamentals curriculum: A field guide to the vessels that move the world's cargo and people — what each type is built to do, and how to tell them apart at a glance.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 1 · Lesson 1 · 3 hours Contact</span>
+    <h1>Ships &amp; Vessel Types</h1>
+    <p class="tagline">A field guide to the vessels that move the world's cargo and people — what each type is built to do, and how to tell them apart at a glance.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">Bulk Carriers</a>
+    <a href="#s2" data-section="s2">Container Ships</a>
+    <a href="#s3" data-section="s3">Tankers</a>
+    <a href="#s4" data-section="s4">Ro-Ro &amp; Passenger</a>
+    <a href="#s5" data-section="s5">OSVs &amp; Tugs</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Walk along almost any waterfront and you will see a handful of unmistakably different silhouettes: a boxy hull stacked with rows of colored containers, a low flat-decked ship carrying cars, a rounded hull riding low in the water under a cargo of grain. None of that variety is accidental. Nearly every oceangoing merchant vessel is a <dfn id="def-purpose-built">purpose-built</dfn> machine, designed around one job — carrying a specific kind of cargo, or performing a specific kind of service — and everything about its shape, its cargo-handling gear, and its onboard systems follows from that one job.</p>
+      <p>This lesson is a field guide to the vessel types you will meet throughout the rest of this course: bulk carriers, container ships, tankers, ro-ro and passenger vessels, and the smaller support craft — offshore support vessels and tugs — that make the larger fleet's work possible. By the end, you should be able to look at a ship's silhouette or a one-line cargo description and say, with reasonable confidence, what kind of vessel is built to carry it.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Think of the world's merchant fleet the way you'd think of a city's delivery vehicles. You wouldn't move gravel in a moving van, or move a family's furniture in a dump truck — each vehicle's shape follows from its cargo. Ships are the same, just at a much larger scale and over much longer distances: a vessel's hull shape, hatch covers, cargo gear, and even its typical size all trace back to one question — what is this ship built to carry?</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Identify the major commercial vessel types by their defining design features.</li>
+        <li>Explain what cargo or service each vessel type is built to carry or perform.</li>
+        <li>Distinguish general cargo and multipurpose vessels from the specialized types that replaced most of that trade.</li>
+        <li>Recognize the role offshore support vessels and tugs play in enabling larger vessels' operations.</li>
+        <li>Match a vessel's visible design features to the trade it most likely serves.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🚢</span>
+      <h2>Bulk Carriers &amp; the Dry Bulk Trade</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>A <dfn id="def-bulk">bulk carrier</dfn> is built to carry unpackaged, loose cargo poured or scooped directly into its holds — iron ore, coal, grain, bauxite, cement clinker. From the outside, a bulker is easy to recognize: a boxy hull with large, flush deck hatches over a series of cargo holds, and often its own cranes or conveyor systems for loading and discharging at ports that lack shore-side equipment.</p>
+    <p>Bulk carriers are classified by size into categories that also describe which ports and canals they can use: Handysize and Handymax are the smallest and most flexible, Panamax is sized to the (now-widened) Panama Canal locks, and Capesize vessels are too large for either the Panama or Suez Canal and instead route around the Cape of Good Hope or Cape Horn — which is exactly how the size class got its name. A single Capesize bulker can carry well over 150,000 tonnes of iron ore in one voyage.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A steel mill in South Korea needs 170,000 tonnes of iron ore delivered from a mine in Western Australia. The cargo has no packaging, no fixed shape, and no need to stay separated into smaller units — it just needs to move in bulk, as cheaply per tonne as possible. A Capesize bulk carrier, with cargo holds built exactly for this kind of loose, heavy, low-value-per-tonne cargo, is the vessel type built for precisely this job.</p></div>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Learners often assume "bulk" means "a lot of cargo" in a generic sense. Anchor the term specifically: bulk cargo is unpackaged and homogeneous — it has no individual units to count, only weight or volume. Ask learners to name something that is NOT bulk cargo (a car, a box of shoes) to sharpen the boundary before moving to container ships.</p></div>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📦</span>
+      <h2>Container Ships &amp; Containerization</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>In 1956, trucking entrepreneur Malcolm McLean loaded 58 standardized metal boxes onto a converted tanker, the <em>Ideal X</em>, and sailed them from New Jersey to Houston. That single voyage is usually credited as the start of <dfn id="def-containerization">containerization</dfn> — the practice of packing cargo into standardized steel boxes (measured in <dfn id="def-teu">twenty-foot equivalent units</dfn>, or TEU) that can move seamlessly between ship, rail car, and truck chassis without ever being unpacked in between.</p>
+    <p>A <dfn id="def-container-ship">container ship</dfn> is built around vertical cell guides that stack these boxes precisely below deck and lash them securely above deck, and is worked by enormous shore-side gantry cranes rather than the ship's own gear. Size classes run from small Feeder vessels serving regional routes, up through Panamax, up to Ultra Large Container Vessels (ULCVs) capable of carrying over 20,000 TEU on the busiest deep-sea trade lanes.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Containerization did to cargo what a standardized shipping box does to e-commerce warehouses: once every item fits into one of a few standard-sized boxes, you can design cranes, ships, trucks, and rail cars all around that one standard — instead of custom-handling every oddly shaped item individually. That single standardization decision is why a shirt manufactured in Vietnam can reach a store shelf in Ohio for a few dollars in shipping cost.</p></div>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A furniture retailer needs to move 2,000 flat-packed bookshelves from a factory in Vietnam to a distribution center in the Netherlands. Rather than loading each bookshelf individually, the factory packs them into standard 40-foot containers, which are trucked to a port, lifted directly onto a container ship by gantry crane, and lifted off again in Rotterdam onto a waiting truck chassis — the boxes themselves are never opened in transit. This is the exact problem the container ship was built to solve.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🛢️</span>
+      <h2>Tankers: Crude, Product &amp; Chemical</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>A <dfn id="def-tanker">tanker</dfn> carries liquid cargo in a series of internal tanks rather than solid cargo in open holds. <dfn>Crude oil tankers</dfn> — including the largest class, Very Large and Ultra Large Crude Carriers (VLCCs and ULCCs) — move unrefined petroleum from producing regions to refineries. <dfn>Product tankers</dfn> carry refined outputs of that refining process (gasoline, diesel, jet fuel) in smaller, often segregated tanks so different grades don't mix, and <dfn>chemical tankers</dfn> carry industrial liquids that require specialized coated tanks to avoid reacting with the cargo.</p>
+    <p>Modern tankers are built with a <dfn id="def-double-hull">double hull</dfn> — an outer and inner shell separated by a void space — a design that became mandatory internationally after the 1989 <em>Exxon Valdez</em> grounding and spill in Alaska, which exposed how a single-hull breach could release cargo directly into the sea. Tankers also use segregated ballast tanks, kept permanently separate from cargo tanks, so that taking on ballast water for stability never risks contaminating cargo or discharging oily water.</p>
+    <table class="compare-table">
+      <caption>Comparing the major tanker types</caption>
+      <thead><tr><th scope="col">Tanker Type</th><th scope="col">Typical Cargo</th><th scope="col">Notable Feature</th></tr></thead>
+      <tbody>
+        <tr><td>Crude oil tanker (VLCC/ULCC)</td><td>Unrefined petroleum</td><td>Largest tanker class; dedicated crude-only routes</td></tr>
+        <tr><td>Product tanker</td><td>Refined fuels (gasoline, diesel, jet fuel)</td><td>Segregated tanks keep grades from mixing</td></tr>
+        <tr><td>Chemical tanker</td><td>Industrial liquid chemicals</td><td>Specialized tank coatings resist cargo reactivity</td></tr>
+        <tr><td>Gas carrier (LNG/LPG)</td><td>Liquefied natural or petroleum gas</td><td>Insulated, pressurized or cryogenic tanks</td></tr>
+      </tbody>
+    </table>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>The double-hull requirement is a clean example of how a single incident (Lesson 11 will return to this) can reshape an entire vessel category's design standard worldwide, not just in the country where it happened — worth flagging as a preview.</p></div>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🚕</span>
+      <h2>Ro-Ro, Cruise &amp; Passenger Vessels</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>A <dfn id="def-roro">roll-on/roll-off (ro-ro) vessel</dfn> is built so that wheeled cargo — cars, trucks, trailers, heavy machinery — can be driven directly on and off via built-in ramps, rather than lifted by crane. <dfn>Pure car and truck carriers (PCTCs)</dfn> are the largest ro-ro class, often carrying several thousand vehicles across multiple internal decks; ferries are a passenger-and-vehicle hybrid version of the same idea, running fixed short-sea routes on a schedule.</p>
+    <p><dfn id="def-cruise">Cruise ships</dfn> are, functionally, floating hotels: their design priorities — passenger cabins, dining and entertainment venues, life-saving appliance capacity for everyone aboard — differ sharply from any cargo vessel's, even though they share the same basic hull, propulsion, and navigation fundamentals covered later in this course. Passenger safety regulation (introduced in Lesson 8) is correspondingly stricter for these vessels than for cargo ships of similar size.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>A ro-ro ship is the maritime equivalent of a multi-story parking garage that also floats and crosses oceans — cargo drives itself on, drives itself off, and the ship's whole internal layout is built around ramps and clear driving lanes rather than crane-accessible holds.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🚣</span>
+      <h2>Offshore Support Vessels &amp; Tugs</h2>
+      <span class="module-time">≈ 20 min</span>
+    </div>
+    <p>Not every commercial vessel carries cargo to sell — some exist to support other vessels and offshore installations. <dfn id="def-osv">Offshore support vessels (OSVs)</dfn> ferry supplies, equipment, and crew between shore bases and offshore oil and gas platforms or wind farms; specialized variants include anchor-handling tugs that position and reposition a rig's mooring lines, and platform supply vessels built with large open decks for pipe, fuel, and drilling fluid.</p>
+    <p><dfn id="def-tug">Tugs</dfn> serve large ships in a different way: <em>harbor tugs</em> push and pull large vessels into and out of tight berths where a ship's own propulsion and steering aren't precise enough, while <em>escort tugs</em> follow a laden tanker through a constrained channel, ready to arrest an unplanned swing before it becomes a grounding. Neither type of tug is small in absolute terms, but both are dwarfed by the vessels they assist — their value is maneuverability and raw pulling power (measured in <dfn>bollard pull</dfn>), not size or cargo capacity.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A fully laden 300-meter container ship needs to turn 90 degrees and back into a narrow berth with only a few meters of clearance on either side — a maneuver its own single propeller and rudder cannot execute precisely at low speed. Two harbor tugs, one pushing on the bow and one on the stern, provide the fine, moment-to-moment thrust adjustments the ship itself cannot, guided by instructions relayed from the ship's pilot (a role this course returns to in Lesson 4).</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Cargo to the Vessel</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each cargo or task below, select the vessel type built to handle it. <strong>Pair-share (10 min):</strong> Compare answers with a neighbor and resolve any disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Cargo or Task</th><th scope="col">Vessel Type</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="bulk">
+                <td>120,000 tonnes of loose iron ore, no packaging</td>
+                <td>
+                  <select aria-label="vessel type for loose iron ore">
+                    <option value="">— Select —</option>
+                    <option value="bulk">Bulk carrier</option>
+                    <option value="container">Container ship</option>
+                    <option value="tanker">Crude oil tanker</option>
+                    <option value="roro">Ro-ro vessel</option>
+                    <option value="tug">Harbor tug</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="container">
+                <td>3,000 standardized 40-foot boxes of mixed manufactured goods</td>
+                <td>
+                  <select aria-label="vessel type for standardized boxes">
+                    <option value="">— Select —</option>
+                    <option value="bulk">Bulk carrier</option>
+                    <option value="container">Container ship</option>
+                    <option value="tanker">Crude oil tanker</option>
+                    <option value="roro">Ro-ro vessel</option>
+                    <option value="tug">Harbor tug</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="tanker">
+                <td>2 million barrels of unrefined crude petroleum</td>
+                <td>
+                  <select aria-label="vessel type for crude petroleum">
+                    <option value="">— Select —</option>
+                    <option value="bulk">Bulk carrier</option>
+                    <option value="container">Container ship</option>
+                    <option value="tanker">Crude oil tanker</option>
+                    <option value="roro">Ro-ro vessel</option>
+                    <option value="tug">Harbor tug</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="roro">
+                <td>4,500 new cars being exported from an assembly plant</td>
+                <td>
+                  <select aria-label="vessel type for exported cars">
+                    <option value="">— Select —</option>
+                    <option value="bulk">Bulk carrier</option>
+                    <option value="container">Container ship</option>
+                    <option value="tanker">Crude oil tanker</option>
+                    <option value="roro">Ro-ro vessel</option>
+                    <option value="tug">Harbor tug</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="tug">
+                <td>Guiding a laden container ship into a narrow berth</td>
+                <td>
+                  <select aria-label="vessel type for guiding a ship into berth">
+                    <option value="">— Select —</option>
+                    <option value="bulk">Bulk carrier</option>
+                    <option value="container">Container ship</option>
+                    <option value="tanker">Crude oil tanker</option>
+                    <option value="roro">Ro-ro vessel</option>
+                    <option value="tug">Harbor tug</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: The Specialization Trade-Off</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A single flexible "general cargo" ship can carry a bit of anything — but not much of any one thing efficiently. Toggle each specialized vessel type below to see what committing to it costs the fleet's overall flexibility, and why the industry moved toward specialized ships anyway.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Vessel specializations">
+          <button type="button" class="sim-toggle" data-conn="bulker" aria-pressed="false">Build a bulk carrier</button>
+          <button type="button" class="sim-toggle" data-conn="container" aria-pressed="false">Build a container ship</button>
+          <button type="button" class="sim-toggle" data-conn="tanker" aria-pressed="false">Build a tanker</button>
+          <button type="button" class="sim-toggle" data-conn="roro" aria-pressed="false">Build a ro-ro vessel</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Fleet-Wide Cargo Flexibility</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> a hypothetical all-purpose fleet could, in principle, load almost any cargo into any hold — slowly, inefficiently, and with a lot of wasted space. Commit a ship to a specialization below to see the trade-off.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="c" data-fb-correct="A bulk carrier's whole design — large flush hatches over open holds — exists to carry loose, unpackaged cargo poured or scooped in directly." data-fb-incorrect="That description fits a tanker or container ship, not a bulk carrier. Bulk carriers move unpackaged, homogeneous cargo like ore, coal, or grain.">
+        <div class="q-stem"><span class="q-num">Q1.</span>What is the defining feature that makes a bulk carrier different from other cargo vessel types?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> It always carries liquid cargo in internal tanks</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> It carries only standardized 20- or 40-foot boxes</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> It carries unpackaged, homogeneous cargo like ore, coal, or grain in open holds</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> It can only operate in the Panama Canal</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="McLean's converted tanker carried the first standardized containers, kicking off containerization — arguably the single biggest change in cargo shipping's history." data-fb-incorrect="1956 is specifically remembered for the first standardized-container voyage (containerization), not a tanker, canal, or cruise milestone.">
+        <div class="q-stem"><span class="q-num">Q2.</span>Why is 1956 often cited as a turning point in the history of merchant shipping?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> The first oil tanker was launched</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> Malcolm McLean's Ideal X voyage marked the start of standardized-container shipping</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> The Panama Canal was widened for larger vessels</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> The first cruise ship began sailing</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="The double-hull requirement followed major spills, most famously the 1989 Exxon Valdez grounding, and adds a buffer between a hull breach and a cargo release." data-fb-incorrect="The double hull is a spill-prevention safety feature, not a cargo-capacity, speed, or docking feature.">
+        <div class="q-stem"><span class="q-num">Q3.</span>Why did tankers become required to have a double hull?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> To reduce the risk of a cargo spill if the outer hull is breached, following incidents like the Exxon Valdez</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> To allow tankers to carry dry bulk cargo as well as liquid</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> To make tankers faster through the water</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> To let tankers dock without tug assistance</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="The defining ro-ro feature is that cargo drives itself on and off via ramps — no crane lift required, unlike a container ship." data-fb-incorrect="Ro-ro vessels aren't defined by cargo being liquid, by being smaller, or by crane use — they're defined by wheeled cargo driving on and off via ramps.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What distinguishes a ro-ro vessel from a container ship?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> Ro-ro vessels only carry liquid cargo</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Ro-ro vessels are always smaller than container ships</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> Ro-ro vessels use gantry cranes exclusively</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Ro-ro vessels load wheeled cargo via ramps under its own power, rather than lifting boxed cargo by crane</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="A harbor tug's job is fine-grained maneuvering — pushing and pulling a large ship into a tight berth with more precision than the ship's own propulsion allows." data-fb-incorrect="Harbor tugs aren't about cargo, ocean towing, or refueling — they provide precise low-speed maneuvering assistance in tight quarters.">
+        <div class="q-stem"><span class="q-num">Q5.</span>What is the primary value a harbor tug provides to a large ship?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> Extra cargo-carrying capacity</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> Precise, moment-to-moment maneuvering thrust that the large ship's own propulsion cannot provide at low speed</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> Long-distance towing across oceans</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> Refueling services at sea</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner find a photo of a real merchant vessel (a ship-tracking site or a waterfront photo works), identify its vessel type from its visible design features, and write two sentences justifying the identification using this lesson's vocabulary. This confirms the visual-identification skill transfers before Lesson 2 builds industry structure on top of it.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.imo.org/en/About/Pages/Default.aspx" target="_blank" rel="noopener noreferrer">IMO — About the International Maritime Organization</a> — background on the UN body that sets global standards for ship design and safety, introduced fully in Lesson 7.</li>
+      <li><a href="https://www.marad.dot.gov/" target="_blank" rel="noopener noreferrer">U.S. Maritime Administration (MARAD)</a> — a U.S. federal overview of commercial vessel types and the domestic and international fleets that operate them.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="index.html">← Course Home</a>
+    <a class="nav-btn" href="lesson02.html">Lesson 2: The Global Shipping Industry →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">Bulk Carriers</a></li>
+      <li><a href="#s2">Container Ships</a></li>
+      <li><a href="#s3">Tankers</a></li>
+      <li><a href="#s4">Ro-Ro &amp; Passenger</a></li>
+      <li><a href="#s5">OSVs &amp; Tugs</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Identify the major commercial vessel types by their defining design features.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Explain what cargo or service each vessel type is built to carry or perform.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Distinguish general cargo and multipurpose vessels from the specialized types that replaced most of that trade.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Recognize the role offshore support vessels and tugs play in enabling larger vessels' operations.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Match a vessel's visible design features to the trade it most likely serves.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Bulk Carrier</span></a><span class="glossary-def">A vessel built to carry unpackaged, homogeneous cargo like ore, coal, or grain in open holds.</span></li>
+      <li><a href="#s2"><span class="glossary-term">TEU</span></a><span class="glossary-def">Twenty-foot equivalent unit — the standard measure of container-ship capacity, based on a standard 20-foot container.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Double Hull</span></a><span class="glossary-def">An outer and inner hull shell separated by void space, required on tankers to reduce spill risk from a hull breach.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Ro-Ro</span></a><span class="glossary-def">Roll-on/roll-off — a vessel design that lets wheeled cargo drive on and off via built-in ramps.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Bollard Pull</span></a><span class="glossary-def">The measure of a tug's raw pulling power, used to describe how much force it can exert on a larger vessel.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="index.html">← Previous: Course Home</a>
+      <a href="lesson02.html">Next: Lesson 2: The Global Shipping Industry →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 1 · Day 1 · Ships &amp; Vessel Types<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { bulker: false, container: false, tanker: false, roro: false };
+  var simMessages = {
+    bulker: "Bulk carrier committed: this hull can now move loose ore, coal, or grain far more cheaply per tonne than a general-purpose hold ever could \u2014 but it can no longer usefully carry boxed manufactured goods or wheeled vehicles.",
+    container: "Container ship committed: cellular guides and gantry-crane compatibility make loading and discharging manufactured goods dramatically faster \u2014 but the ship has effectively no ability to carry loose bulk cargo or liquid cargo.",
+    tanker: "Tanker committed: internal tanks and cargo pumps make bulk liquid transport efficient and safe \u2014 but the same hull now has zero capacity for dry cargo of any kind.",
+    roro: "Ro-ro vessel committed: ramps and clear driving lanes make loading wheeled cargo fast \u2014 but the open deck space this requires means far less cargo volume per meter of hull than a bulker or container ship of the same size."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> a hypothetical all-purpose fleet could, in principle, load almost any cargo into any hold — slowly, inefficiently, and with a lot of wasted space. Commit a ship to a specialization below to see the trade-off.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four specializations are now active across the fleet. No single ship can do everything anymore \u2014 and that is exactly the point: specialization sacrifices flexibility for efficiency, and the modern shipping industry is built on exactly this trade-off, repeated across thousands of purpose-built vessels.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

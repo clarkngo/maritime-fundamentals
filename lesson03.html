@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Ports &amp; Terminals | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 1, Lesson 3 of the Maritime Operations &amp; Industry Fundamentals curriculum: A port is not one company. It is a piece of public or quasi-public infrastructure hosting several private terminal operators, each running a different kind of cargo-handling business.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 1 · Lesson 3 · 3 hours Contact</span>
+    <h1>Ports &amp; Terminals</h1>
+    <p class="tagline">A port is not one company. It is a piece of public or quasi-public infrastructure hosting several private terminal operators, each running a different kind of cargo-handling business.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">The Landlord Port Model</a>
+    <a href="#s2" data-section="s2">Container Terminals</a>
+    <a href="#s3" data-section="s3">Bulk &amp; Liquid Terminals</a>
+    <a href="#s4" data-section="s4">Stevedoring</a>
+    <a href="#s5" data-section="s5">Port Efficiency</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Lesson 1 covered the ships, and Lesson 2 covered the companies that own, manage, and operate them. This lesson covers the other end of every voyage: the port. Like the shipping industry itself, a modern port is rarely a single company doing everything — it is usually a public or quasi-public <dfn id="def-port-authority-intro">port authority</dfn> that owns the land and water and sets the rules, hosting several separate private <dfn id="def-terminal-operator-intro">terminal operators</dfn> who each invest in and run one piece of cargo-handling infrastructure.</p>
+      <p>This lesson explains that <dfn id="def-landlord-port">landlord port</dfn> model, tours the three main terminal types — container, dry bulk, and liquid — that handle the cargo types from Lesson 1, introduces the stevedores who physically move cargo, and closes with what actually makes one port more efficient than another.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Think of a major airport. The airport authority owns the runways, taxiways, and terminal buildings and sets the overall rules, but it doesn't operate the individual airline check-in counters, baggage handlers, or duty-free shops — those are run by separate companies leasing space and following the airport's rules. A modern seaport works on almost exactly the same model, just with container cranes and grain silos instead of jet bridges and gate counters.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Explain the landlord port model and distinguish a port authority's role from a terminal operator's.</li>
+        <li>Describe how container, dry bulk, and liquid terminals differ in layout, equipment, and cargo handling.</li>
+        <li>Explain what stevedoring is and who performs it.</li>
+        <li>Trace a container's path through a terminal from ship discharge to the outbound gate.</li>
+        <li>Identify the factors that determine how efficiently a port turns ships around.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🏛️</span>
+      <h2>The Landlord Port Model</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>Most major ports worldwide operate on the <dfn id="def-landlord">landlord port</dfn> model: a <dfn>port authority</dfn> — often a government agency, municipal body, or public corporation — owns the land, the water frontage, and the basic infrastructure (channels, breakwaters, rail and road access), and sets safety and environmental rules for everyone operating within its boundary. It then leases specific terminal sites to private <dfn>terminal operators</dfn>, who invest their own capital in cranes, yard equipment, and buildings, and run day-to-day cargo operations on that leased site under the port authority's rules.</p>
+    <p>This is different from an older <dfn id="def-service-port">service port</dfn> model, still used in some places, where a single public entity owns the infrastructure and also directly operates cargo handling itself. The landlord model has become dominant internationally because it lets a port authority focus on infrastructure and regulation while specialized terminal-operating companies — some of which run terminals in dozens of ports worldwide — bring cargo-handling expertise and capital investment that a public agency often can't match.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>This mirrors Lesson 2's owner/manager/operator split almost exactly, just applied to ports instead of ships. Drawing that parallel explicitly here reinforces both lessons and helps the pattern generalize in learners' minds.</p></div>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🏗️</span>
+      <h2>Container Terminals</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>A <dfn id="def-container-terminal">container terminal</dfn> is built around a berth served by <dfn id="def-sts-crane">ship-to-shore (STS) gantry cranes</dfn> — towering rail-mounted cranes that lift containers directly from a ship's cells onto a truck chassis or automated vehicle. From there, containers move into a <dfn>container yard</dfn>, stacked several boxes high by rubber-tyred gantry cranes or straddle carriers, until a truck, train, or feeder vessel is ready to carry them onward.</p>
+    <p>A <dfn id="def-tos">terminal operating system (TOS)</dfn> — software tracking every container's location and next move — coordinates this constant motion, because a modern container terminal typically has thousands of boxes moving at once and needs to know precisely which stack position holds which container, without physically searching for it.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A container is discharged from a ship by an STS crane, placed onto a terminal tractor, and driven to a yard block, where a rubber-tyred gantry crane stacks it four boxes high to await a rail connection three days later. The terminal operating system records its exact stack position the moment it's set down, so when the rail booking is confirmed, the yard crane can retrieve that specific box without searching the yard.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🛢️</span>
+      <h2>Bulk &amp; Liquid Terminals</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>A <dfn id="def-bulk-terminal">dry bulk terminal</dfn> looks nothing like a container terminal: instead of gantry cranes over stacked boxes, it uses grab cranes, continuous conveyor systems, or pneumatic unloaders to move loose cargo like coal, ore, or grain between a ship's holds and large storage structures — open stockpiles for ore and coal, enclosed silos for grain — before the cargo continues onward by rail, barge, or truck.</p>
+    <p>A <dfn id="def-liquid-terminal">liquid (tank) terminal</dfn> is different again: cargo moves through pipelines connected to a ship's manifold, pumped into a shore-side tank farm of large cylindrical storage tanks. Because different liquid cargoes (crude oil, refined fuel, chemicals) cannot mix, tank terminals maintain strict segregation between tanks and pipeline runs, and cargo transfer is measured and metered with a precision dry bulk and container terminals don't need.</p>
+    <table class="compare-table">
+      <caption>Comparing the three main terminal types</caption>
+      <thead><tr><th scope="col">Terminal Type</th><th scope="col">Primary Equipment</th><th scope="col">Storage Method</th></tr></thead>
+      <tbody>
+        <tr><td>Container terminal</td><td>STS gantry cranes, yard gantries/straddle carriers</td><td>Stacked container yard</td></tr>
+        <tr><td>Dry bulk terminal</td><td>Grab cranes, conveyors, pneumatic unloaders</td><td>Open stockpiles or enclosed silos</td></tr>
+        <tr><td>Liquid (tank) terminal</td><td>Pipelines, cargo pumps, metering systems</td><td>Segregated cylindrical storage tanks</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">👷</span>
+      <h2>Stevedoring &amp; Cargo-Handling Labor</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p><dfn id="def-stevedoring">Stevedoring</dfn> is the physical work of loading and discharging cargo — historically done entirely by hand, today largely performed by skilled crane and equipment operators. The workers who perform this work are called <dfn id="def-stevedore">stevedores</dfn> (or, in some countries, <dfn>longshoremen</dfn> or <dfn>dockers</dfn>), and in most major ports they are organized through strong labor unions with negotiated work rules covering safety, staffing levels, and pay — a legacy of the physically dangerous, labor-intensive cargo work that defined ports before containerization mechanized much of the job.</p>
+    <p>A stevedoring company is often a separate business from the terminal operator that leases the site from the port authority, contracted specifically to supply the labor and crane operation for loading and discharging a given ship — another example of the specialization pattern that runs throughout this industry.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Stevedoring's shift from mostly manual labor to mostly equipment operation mirrors what happened in manufacturing with the rise of factory automation: the physical loading work didn't disappear, but it shifted from muscle to machine operation, and the skills, safety risks, and staffing levels needed all changed with it.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">⏱️</span>
+      <h2>What Makes a Port Efficient</h2>
+      <span class="module-time">≈ 20 min</span>
+    </div>
+    <p>A port's efficiency is usually measured by how quickly it can turn a ship around — get it alongside, worked, and back to sea — because every hour a ship spends idle at berth is an hour it isn't earning freight elsewhere. Key efficiency measures include <dfn id="def-crane-productivity">crane productivity</dfn> (container moves per crane per hour), <dfn>berth productivity</dfn>, and how quickly cargo clears the terminal gate rather than sitting in the yard.</p>
+    <p>Efficiency also depends heavily on a port's <dfn id="def-hinterland">hinterland connections</dfn> — the rail lines, highways, and inland waterways linking the port to its inland customers. A port with world-class cranes but poor rail and road links to its hinterland will still see cargo pile up in the yard waiting for onward transport, dragging down overall performance no matter how fast the ship itself is worked.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>If learners struggle to see why hinterland connections matter as much as crane speed, use a bathtub analogy: a fast faucet (crane productivity) doesn't help if the drain (hinterland transport) is slow — the tub still overflows.</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Terminal Function to Its Actor</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each function below, select who is responsible for it in a landlord-model port. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Function</th><th scope="col">Responsible Party</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="authority">
+                <td>Setting overall safety and environmental rules for the whole port</td>
+                <td>
+                  <select aria-label="party for overall port rules">
+                    <option value="">— Select —</option>
+                    <option value="authority">Port authority</option>
+                    <option value="operator">Terminal operator</option>
+                    <option value="stevedore">Stevedoring company</option>
+                    <option value="shipping">Shipping line</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="operator">
+                <td>Investing in and operating the ship-to-shore gantry cranes at one terminal</td>
+                <td>
+                  <select aria-label="party for investing in gantry cranes">
+                    <option value="">— Select —</option>
+                    <option value="authority">Port authority</option>
+                    <option value="operator">Terminal operator</option>
+                    <option value="stevedore">Stevedoring company</option>
+                    <option value="shipping">Shipping line</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="stevedore">
+                <td>Supplying the skilled labor that physically loads and discharges a specific ship</td>
+                <td>
+                  <select aria-label="party for supplying loading labor">
+                    <option value="">— Select —</option>
+                    <option value="authority">Port authority</option>
+                    <option value="operator">Terminal operator</option>
+                    <option value="stevedore">Stevedoring company</option>
+                    <option value="shipping">Shipping line</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="authority">
+                <td>Owning the land, water frontage, and access channels of the port</td>
+                <td>
+                  <select aria-label="party for owning port land and channels">
+                    <option value="">— Select —</option>
+                    <option value="authority">Port authority</option>
+                    <option value="operator">Terminal operator</option>
+                    <option value="stevedore">Stevedoring company</option>
+                    <option value="shipping">Shipping line</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="operator">
+                <td>Running the terminal operating system that tracks every container's yard position</td>
+                <td>
+                  <select aria-label="party for running the terminal operating system">
+                    <option value="">— Select —</option>
+                    <option value="authority">Port authority</option>
+                    <option value="operator">Terminal operator</option>
+                    <option value="stevedore">Stevedoring company</option>
+                    <option value="shipping">Shipping line</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: The Landlord Port Model in Action</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A port authority owns the land, but rarely runs the day-to-day cargo operations itself. Toggle each specialist below to see how operational control is distributed across separate companies.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Port specialists">
+          <button type="button" class="sim-toggle" data-conn="operator" aria-pressed="false">Lease a terminal to an operator</button>
+          <button type="button" class="sim-toggle" data-conn="stevedore" aria-pressed="false">Contract a stevedoring company</button>
+          <button type="button" class="sim-toggle" data-conn="agent" aria-pressed="false">Bring in shipping agents</button>
+          <button type="button" class="sim-toggle" data-conn="customs" aria-pressed="false">Add customs &amp; border control</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Port Authority's Direct Day-to-Day Control</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> in a pure service-port model, the port authority itself would run every crane and every gate. Add the specialists below to see how the landlord model actually distributes that control.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="a" data-fb-correct="The port authority owns infrastructure and sets the rules; day-to-day cargo operations are run by private terminal operators leasing the site." data-fb-incorrect="Cranes, stevedoring labor, and shipping lines are run by separate specialist companies, not the port authority itself \u2014 its role is infrastructure and rules.">
+        <div class="q-stem"><span class="q-num">Q1.</span>In the landlord port model, what does the port authority typically own and control directly?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> The land, water frontage, and basic infrastructure, plus overall safety and environmental rules</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> Every crane and piece of cargo-handling equipment at every terminal</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> The stevedoring labor contracts at every terminal</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> The shipping lines that call at the port</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Container terminals are built around gantry cranes and stacked yards; bulk terminals move loose cargo via grabs, conveyors, or pneumatic systems into stockpiles or silos." data-fb-incorrect="The two terminal types use fundamentally different equipment \u2014 gantry cranes and stacking for containers, versus grabs/conveyors and stockpiles or silos for bulk.">
+        <div class="q-stem"><span class="q-num">Q2.</span>What is the primary equipment difference between a container terminal and a dry bulk terminal?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> Container terminals use pipelines; bulk terminals use gantry cranes</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> Bulk terminals never use cranes of any kind</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> Container terminals use gantry cranes to move stacked boxes; bulk terminals use grabs or conveyors to move loose cargo</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> There is no meaningful equipment difference between the two</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="Segregation exists to prevent different liquid cargoes from contaminating each other during transfer and storage." data-fb-incorrect="Segregation is a cargo-purity requirement, not a tax rule, and ships can carry multiple grades \u2014 which is exactly why segregation matters.">
+        <div class="q-stem"><span class="q-num">Q3.</span>Why do liquid (tank) terminals maintain strict segregation between tanks and pipeline runs?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> To make loading slower for safety theater purposes</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> Because different liquid cargoes, like crude oil, refined fuel, and chemicals, cannot be allowed to mix</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> Because port authorities require it for tax purposes</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> Because ships cannot carry more than one grade of liquid cargo ever</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="Containerization and mechanization shifted stevedoring from largely manual cargo handling to skilled crane and equipment operation \u2014 the job changed, it didn't disappear." data-fb-incorrect="Stevedoring still exists and still involves human workers \u2014 what changed is the nature of the work, from manual labor to equipment operation.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What best describes the modern stevedoring workforce compared to the pre-containerization era?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> Stevedoring no longer exists as an occupation</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Stevedores now work exclusively in customs clearance</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> Stevedoring became entirely automated with no human workers</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> The work shifted from mostly manual labor to mostly skilled equipment operation</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Crane speed only helps if cargo can also clear the port quickly afterward \u2014 weak hinterland transport links create a bottleneck regardless of berth-side speed." data-fb-incorrect="The limiting factor described is hinterland connectivity, not crane safety, penalties, or ship compatibility.">
+        <div class="q-stem"><span class="q-num">Q5.</span>Why can a port with fast cranes still perform poorly overall?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> Poor hinterland connections (rail, road, inland waterway) can cause cargo to back up even if ships are worked quickly</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> Fast cranes always cause more ship accidents</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> Port authorities penalize terminals for working too quickly</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> Fast cranes are incompatible with modern container ships</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner research one major port near them (or any port of interest) and identify: its port authority, at least one named terminal operator leasing space there, and one visible hinterland connection (a rail line, highway, or river). A short written summary confirms the landlord-model vocabulary transferred to a real example before Day 2 moves aboard the ship itself.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.worldbank.org/en/topic/transport/brief/port-reform-toolkit" target="_blank" rel="noopener noreferrer">World Bank — Port Reform Toolkit</a> — a widely referenced explanation of the landlord, service, and other port governance models.</li>
+      <li><a href="https://unctad.org/publication/liner-shipping-connectivity-index" target="_blank" rel="noopener noreferrer">UNCTAD — Liner Shipping Connectivity Index</a> — a global comparison of port and terminal connectivity, useful context for the port-efficiency discussion in this lesson.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson02.html">← Lesson 2: The Global Shipping Industry</a>
+    <a class="nav-btn" href="lesson04.html">Lesson 4: Basic Navigation &amp; Watchkeeping →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">The Landlord Port Model</a></li>
+      <li><a href="#s2">Container Terminals</a></li>
+      <li><a href="#s3">Bulk &amp; Liquid Terminals</a></li>
+      <li><a href="#s4">Stevedoring</a></li>
+      <li><a href="#s5">Port Efficiency</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Explain the landlord port model and distinguish a port authority's role from a terminal operator's.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Describe how container, dry bulk, and liquid terminals differ in layout, equipment, and cargo handling.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Explain what stevedoring is and who performs it.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Trace a container's path through a terminal from ship discharge to the outbound gate.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Identify the factors that determine how efficiently a port turns ships around.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Landlord Port</span></a><span class="glossary-def">A port model where a public authority owns infrastructure and leases terminal sites to private operators.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Terminal Operating System (TOS)</span></a><span class="glossary-def">Software that tracks every container's location and scheduled next move within a terminal.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Tank Farm</span></a><span class="glossary-def">A shore-side liquid terminal's array of segregated storage tanks connected by pipeline to a ship's manifold.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Stevedore</span></a><span class="glossary-def">A worker who performs the physical loading and discharging of cargo, historically by hand and today largely via equipment operation.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Hinterland Connections</span></a><span class="glossary-def">The rail, road, and inland waterway links between a port and its inland customers, a major factor in overall port efficiency.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson02.html">← Previous: Lesson 2: The Global Shipping Industry</a>
+      <a href="lesson04.html">Next: Lesson 4: Basic Navigation &amp; Watchkeeping →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 3 · Day 1 · Ports &amp; Terminals<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { operator: false, stevedore: false, agent: false, customs: false };
+  var simMessages = {
+    operator: "Terminal operator added: cranes, yard equipment, and daily terminal operations are now run by a private company leasing the site, not the port authority itself.",
+    stevedore: "Stevedoring company added: the physical labor of loading and discharging each ship is now supplied by a contracted labor specialist, layered under the terminal operator.",
+    agent: "Shipping agents added: each visiting vessel's local paperwork, berth scheduling, and crew-change arrangements are now handled by agents representing the ship's operator, not the port authority.",
+    customs: "Customs and border control added: cargo clearance and import/export compliance is handled by a separate government agency with its own rules, independent of the port authority's own infrastructure role."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> in a pure service-port model, the port authority itself would run every crane and every gate. Add the specialists below to see how the landlord model actually distributes that control.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four specialists are now in place. The port authority still owns the land and sets the rules, but almost every operational task \u2014 crane operation, labor, agency work, customs clearance \u2014 is now handled by a distinct specialist organization. This is the landlord port model working as intended, not a loss of control.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

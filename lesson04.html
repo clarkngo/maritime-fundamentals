@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Basic Navigation &amp; Watchkeeping | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 2, Lesson 4 of the Maritime Operations &amp; Industry Fundamentals curriculum: How a ship's bridge stays safely aware of its position and surroundings, twenty-four hours a day, on every day of a voyage.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 2 · Lesson 4 · 3 hours Contact</span>
+    <h1>Basic Navigation &amp; Watchkeeping</h1>
+    <p class="tagline">How a ship's bridge stays safely aware of its position and surroundings, twenty-four hours a day, on every day of a voyage.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">The Bridge Team</a>
+    <a href="#s2" data-section="s2">Watch Schedules</a>
+    <a href="#s3" data-section="s3">COLREGs Basics</a>
+    <a href="#s4" data-section="s4">Voyage Planning</a>
+    <a href="#s5" data-section="s5">Pilotage</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>A ship never stops moving, and it can never simply pull over. That single fact shapes almost everything about how a bridge is staffed and run: someone qualified must be watching the ship's position, its surroundings, and its systems at every hour of every day, for the entire length of a voyage that might last weeks. This lesson introduces the people who do that watching, the schedule that keeps them fresh enough to do it safely, the basic rules that govern how ships behave around each other, and the planning process that turns a destination into an actual route.</p>
+      <p>None of this lesson requires a navigation background. The goal is industry literacy: knowing who is on the bridge, what they're responsible for, and roughly how a ship gets from one port to another safely — not how to actually navigate a vessel yourself.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Think of an aircraft's cockpit crew, but for a much longer, slower journey: instead of a few hours in the air, a bridge team maintains this same kind of constant vigilance for the entire span of a multi-day or multi-week ocean crossing, handing off responsibility from one qualified officer to the next in scheduled shifts rather than ever leaving the "cockpit" unattended.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Identify the core bridge team roles and describe the master's overall authority and responsibility.</li>
+        <li>Explain why continuous watchkeeping is required and how watch schedules are typically structured.</li>
+        <li>Describe the basic purpose of COLREGs and the concept of give-way and stand-on vessels.</li>
+        <li>Explain what voyage planning involves at a high level, from appraisal to monitoring.</li>
+        <li>Explain the role of a maritime pilot during port approaches and restricted-water transits.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🧭</span>
+      <h2>The Bridge Team</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>The <dfn id="def-master">master</dfn> holds overall command of the vessel and ultimate responsibility for its safety, the safety of everyone aboard, and the cargo — a legal and practical authority sometimes called the <dfn id="def-master-authority">master's overriding authority</dfn>, meaning that in a genuine safety emergency, the master's judgment on the spot outranks any commercial pressure, schedule, or shore-side instruction. Below the master, an <dfn id="def-oow">officer of the watch (OOW)</dfn> — a licensed deck officer — takes direct responsibility for the ship's safe navigation during their assigned watch period, supported by a <dfn>lookout</dfn> (who watches visually and by ear for hazards) and, when the ship is being steered manually, a <dfn>helmsman</dfn> at the wheel.</p>
+    <p>This is a chain of delegated, not divided, responsibility: the OOW runs the watch, but the master remains ultimately accountable and can be called to the bridge at any time — particularly for complex maneuvers, restricted visibility, or congested waters — without that call reflecting badly on the watch officer. Calling the master early is the expected, professional choice, not a last resort.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Learners sometimes assume calling the captain signals failure on the watch officer's part. Correct this directly: maritime safety culture treats early escalation as good practice, a theme Lesson 11 returns to in the context of incident causation.</p></div>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">⏰</span>
+      <h2>Watch Schedules &amp; Continuous Watchkeeping</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Because a vessel operates continuously, its bridge (and engine room) must be staffed around the clock, divided into <dfn id="def-watch-system">watch systems</dfn> — commonly a <em>4-on/8-off</em> rotation, where each watchkeeper stands four hours on duty followed by eight hours off, repeated twice daily. Smaller crews sometimes use a <em>6-on/6-off</em> system instead. Either way, the goal is the same: guarantee that a rested, qualified officer is always in charge of the watch.</p>
+    <p>International rules under the STCW Convention (introduced fully in Lesson 8) set minimum rest-hour requirements specifically to prevent fatigue-driven errors, because a tired watch officer is a well-documented contributing factor in maritime incidents. Watch schedules are not just a staffing convenience — they are a core safety control, and disrupting them (for example, by demanding extra work during off-watch rest periods) is treated as a genuine safety risk, not just an inconvenience.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A cargo ship crossing the Pacific runs a 4-on/8-off watch system with three deck officers. The second officer stands the 12:00–16:00 and 00:00–04:00 watches every day of the voyage, handing over a written and verbal briefing to the third officer at each changeover — position, traffic, weather, and any standing orders from the master — so that the ship's situational awareness never has a gap, even as the specific person maintaining it changes every four hours.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">⚓</span>
+      <h2>COLREGs: The Basic Rules of the Road at Sea</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>The <dfn id="def-colregs">International Regulations for Preventing Collisions at Sea (COLREGs)</dfn> are the maritime equivalent of traffic rules — a globally agreed set of rules governing how vessels behave around each other to avoid collision. At the core of COLREGs is a simple but essential concept: in most encounters between two vessels, one is designated the <dfn id="def-give-way">give-way vessel</dfn>, obligated to take early and substantial action to keep clear, while the other is the <dfn id="def-stand-on">stand-on vessel</dfn>, obligated to maintain course and speed so the give-way vessel can predict its movement and maneuver around it safely.</p>
+    <p>Which vessel gives way depends on the situation — head-on, crossing, or overtaking — and on vessel type and status (a sailing vessel or one restricted in its ability to maneuver generally has priority over an ordinary power-driven vessel). COLREGs also requires every vessel to maintain a proper lookout "by sight and hearing" at all times and to proceed at a <dfn>safe speed</dfn> appropriate to visibility, traffic density, and sea conditions — the same lookout duty that keeps the bridge team from Section 1 continuously staffed.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>COLREGs' give-way/stand-on system works like a four-way stop sign with an agreed pecking order: everyone needs to know, without radio contact and often at a distance of miles, exactly which vessel is expected to move and which is expected to hold steady \u2014 predictability is what actually prevents the collision, more than any single vessel's cleverness.</p></div>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🗺️</span>
+      <h2>Voyage Planning</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>Before a ship departs, its officers develop a <dfn id="def-passage-plan">passage plan</dfn> (or voyage plan) covering the entire route, following a widely used four-stage process: <dfn id="def-appraisal">appraisal</dfn> (gathering all relevant charts, weather, and hazard information for the intended route), <dfn>planning</dfn> (laying out the actual route and waypoints, including contingencies), <dfn>execution</dfn> (carrying out the plan during the voyage), and <dfn>monitoring</dfn> (continuously checking the ship's actual position and conditions against the plan, and adjusting as needed).</p>
+    <p>Modern voyage planning is done largely on ECDIS (the electronic chart system mentioned in Lesson 1 and covered again in Lesson 6), which lets officers draw a planned route directly onto an electronic chart, check it against known hazards and under-keel clearance requirements, and monitor the ship's actual track against that plan in real time throughout the voyage — while paper charts and manual methods remain a required backup skill.</p>
+    <table class="compare-table">
+      <caption>The four stages of voyage planning</caption>
+      <thead><tr><th scope="col">Stage</th><th scope="col">What Happens</th></tr></thead>
+      <tbody>
+        <tr><td>Appraisal</td><td>Gather charts, weather, hazard data, and vessel-specific constraints for the intended route</td></tr>
+        <tr><td>Planning</td><td>Lay out the route, waypoints, and contingency options in detail</td></tr>
+        <tr><td>Execution</td><td>Carry out the plan during the actual voyage</td></tr>
+        <tr><td>Monitoring</td><td>Continuously check actual position and conditions against the plan, adjusting as needed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🚢</span>
+      <h2>Pilotage in Restricted Waters</h2>
+      <span class="module-time">≈ 20 min</span>
+    </div>
+    <p>A <dfn id="def-pilot">maritime pilot</dfn> is a local navigation specialist with detailed knowledge of a specific port, river, or restricted channel, who boards a vessel — often via a rope <dfn id="def-pilot-ladder">pilot ladder</dfn> lowered from the ship's side while both vessels are underway — to advise the master through the trickiest part of a voyage: the approach into port. Pilots are typically required at most major ports for vessels above a certain size, precisely because local currents, traffic patterns, and underwater hazards are things a visiting ship's own officers cannot be expected to know as well as someone who transits that same channel daily.</p>
+    <p>Critically, a pilot advises; the master retains full command and legal responsibility for the vessel throughout the pilotage, and can (rarely, but validly) override a pilot's recommendation if the master judges it unsafe. In practice, the pilot and bridge team function as an extended, temporary bridge team for the highest-risk phase of the voyage — the same collaborative model from Section 1, with one more highly specialized person added to it.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>A common misconception is that the pilot "takes over" the ship. Correct this directly: legal command never transfers, which matters when the course later discusses accountability during incidents in Lesson 11.</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Role to Its Responsibility</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each role below, select its core responsibility aboard ship. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Role</th><th scope="col">Core Responsibility</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="master">
+                <td>Holds overall command and ultimate responsibility for the vessel</td>
+                <td>
+                  <select aria-label="role for overall command">
+                    <option value="">— Select —</option>
+                    <option value="master">Master</option>
+                    <option value="oow">Officer of the watch</option>
+                    <option value="lookout">Lookout</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="helm">Helmsman</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="oow">
+                <td>Takes direct responsibility for safe navigation during an assigned watch period</td>
+                <td>
+                  <select aria-label="role for direct navigation responsibility during a watch">
+                    <option value="">— Select —</option>
+                    <option value="master">Master</option>
+                    <option value="oow">Officer of the watch</option>
+                    <option value="lookout">Lookout</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="helm">Helmsman</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="lookout">
+                <td>Watches visually and by ear for hazards, as required under COLREGs</td>
+                <td>
+                  <select aria-label="role for watching for hazards">
+                    <option value="">— Select —</option>
+                    <option value="master">Master</option>
+                    <option value="oow">Officer of the watch</option>
+                    <option value="lookout">Lookout</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="helm">Helmsman</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="pilot">
+                <td>Boards temporarily to advise on local navigation through a specific port or channel</td>
+                <td>
+                  <select aria-label="role for local navigation advice">
+                    <option value="">— Select —</option>
+                    <option value="master">Master</option>
+                    <option value="oow">Officer of the watch</option>
+                    <option value="lookout">Lookout</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="helm">Helmsman</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="helm">
+                <td>Physically steers the vessel when not on automatic pilot</td>
+                <td>
+                  <select aria-label="role for physically steering the vessel">
+                    <option value="">— Select —</option>
+                    <option value="master">Master</option>
+                    <option value="oow">Officer of the watch</option>
+                    <option value="lookout">Lookout</option>
+                    <option value="pilot">Pilot</option>
+                    <option value="helm">Helmsman</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: Bridge Workload &amp; Team Support</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A single watch officer, alone, has finite attention. Toggle each added duty below to see why a properly staffed bridge team — not a lone officer doing everything — is the actual safety control.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Concurrent watch duties">
+          <button type="button" class="sim-toggle" data-conn="radar" aria-pressed="false">Monitor radar for traffic</button>
+          <button type="button" class="sim-toggle" data-conn="ecdis" aria-pressed="false">Cross-check ECDIS route</button>
+          <button type="button" class="sim-toggle" data-conn="radio" aria-pressed="false">Maintain VHF radio watch</button>
+          <button type="button" class="sim-toggle" data-conn="log" aria-pressed="false">Complete required logs</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Solo Officer's Attention Headroom</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> at the start of a quiet watch, one officer alone has plenty of attention to spare. Add realistic concurrent duties below to see how quickly that changes.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="b" data-fb-correct="The overriding authority specifically means safety judgment in an emergency takes priority over schedule or commercial pressure \u2014 not that the master micromanages routine watches." data-fb-incorrect="This authority is specifically about emergency safety judgment overriding commercial pressure, not day-to-day steering duties or absolute unreviewable power.">
+        <div class="q-stem"><span class="q-num">Q1.</span>What does the "master's overriding authority" mean in practice?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> The master must personally approve every routine watch decision</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> In a genuine safety emergency, the master's on-the-spot judgment outranks commercial pressure or shore instructions</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> The master is legally required to steer the ship personally in bad weather</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> The master cannot be overruled by any regulation, ever</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Watch schedules exist to guarantee rest and prevent fatigue \u2014 a well-documented contributing factor in maritime incidents, which is why STCW sets minimum rest-hour rules." data-fb-incorrect="The core purpose is fatigue prevention for safety reasons, formalized in STCW rest-hour requirements \u2014 not cost savings or union requirements alone.">
+        <div class="q-stem"><span class="q-num">Q2.</span>Why are watch schedules like 4-on/8-off treated as a safety control, not just a staffing convenience?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> They are required only for cost-saving reasons</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> They have no connection to safety at all</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> They are designed to prevent fatigue-driven errors by guaranteeing rest periods for watchkeepers</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> They exist only to satisfy labor unions</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="The stand-on vessel's predictability \u2014 maintaining course and speed \u2014 is what lets the give-way vessel maneuver safely around it." data-fb-incorrect="Taking evasive action is the give-way vessel's job; the stand-on vessel's job is to stay predictable by holding course and speed.">
+        <div class="q-stem"><span class="q-num">Q3.</span>Under COLREGs, what is a stand-on vessel required to do in most encounters?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> Maintain course and speed so the give-way vessel can predict and maneuver around it</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> Immediately stop all engines</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> Take early and substantial action to move out of the way</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> Ignore the other vessel entirely</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="Appraisal, planning, execution, and monitoring is the standard four-stage voyage planning sequence covered in this lesson." data-fb-incorrect="The correct sequence is appraisal, planning, execution, and monitoring \u2014 the other sequences describe different processes (cargo or chartering) covered elsewhere in this course.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What are the four stages of the standard voyage planning process, in order?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> Departure, transit, arrival, debrief</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Loading, sailing, discharging, invoicing</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> Charter, fixture, voyage, settlement</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Appraisal, planning, execution, monitoring</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="The pilot advises, but legal command and responsibility never transfer away from the master, even during pilotage." data-fb-incorrect="Command stays with the master throughout \u2014 the pilot's role is advisory, however critical that advice is to a safe transit.">
+        <div class="q-stem"><span class="q-num">Q5.</span>When a pilot boards a vessel to guide it through a port approach, who holds legal command of the ship?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> The pilot, for the duration of the pilotage</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> The master, at all times, even while the pilot is advising</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> The port authority's harbor master</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> Command is shared equally with no one person responsible</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner sketch a simple diagram of two vessels approaching each other at a right angle (a crossing situation) and label which vessel they believe is give-way and which is stand-on, with a one-sentence justification. Accuracy matters less here than demonstrating the give-way/stand-on concept is understood.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.imo.org/en/About/Conventions/Pages/COLREG.aspx" target="_blank" rel="noopener noreferrer">IMO — Convention on the International Regulations for Preventing Collisions at Sea</a> — the IMO's own summary page for COLREGs, referenced throughout this lesson.</li>
+      <li><a href="https://www.imo.org/en/OurWork/Safety/Pages/StandardsOfTraining.aspx" target="_blank" rel="noopener noreferrer">IMO — Standards of Training, Certification and Watchkeeping (STCW)</a> — the convention behind the watchkeeping and rest-hour rules introduced here, covered fully in Lesson 8.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson03.html">← Lesson 3: Ports &amp; Terminals</a>
+    <a class="nav-btn" href="lesson05.html">Lesson 5: Cargo Operations →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">The Bridge Team</a></li>
+      <li><a href="#s2">Watch Schedules</a></li>
+      <li><a href="#s3">COLREGs Basics</a></li>
+      <li><a href="#s4">Voyage Planning</a></li>
+      <li><a href="#s5">Pilotage</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Identify the core bridge team roles and describe the master's overall authority and responsibility.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Explain why continuous watchkeeping is required and how watch schedules are typically structured.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Describe the basic purpose of COLREGs and the concept of give-way and stand-on vessels.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Explain what voyage planning involves at a high level, from appraisal to monitoring.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Explain the role of a maritime pilot during port approaches and restricted-water transits.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Master's Overriding Authority</span></a><span class="glossary-def">The principle that a master's safety judgment in an emergency outranks commercial pressure or shore instructions.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Watch System</span></a><span class="glossary-def">A staffing rotation, such as 4-on/8-off, that ensures continuous, rested watchkeeping around the clock.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Give-Way / Stand-On Vessel</span></a><span class="glossary-def">COLREGs roles defining which of two vessels must maneuver clear and which must hold course and speed.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Passage Plan</span></a><span class="glossary-def">A voyage's full route plan, developed through appraisal, planning, execution, and monitoring.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Maritime Pilot</span></a><span class="glossary-def">A local navigation specialist who boards a vessel to advise on transit through a specific port or channel, without taking legal command.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson03.html">← Previous: Lesson 3: Ports &amp; Terminals</a>
+      <a href="lesson05.html">Next: Lesson 5: Cargo Operations →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 4 · Day 2 · Basic Navigation &amp; Watchkeeping<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { radar: false, ecdis: false, radio: false, log: false };
+  var simMessages = {
+    radar: "Radar monitoring added: tracking nearby vessel traffic and closest-point-of-approach data now consumes a meaningful share of the officer's attention, especially in busy waters.",
+    ecdis: "ECDIS cross-checking added: confirming the ship is tracking its planned route and not drifting toward a charted hazard takes ongoing, not one-time, attention.",
+    radio: "VHF radio watch added: listening for calls from other vessels, the pilot station, or a vessel traffic service adds another continuous demand on the same officer.",
+    log: "Required logging added: recording position, weather, and standing-order compliance at set intervals pulls attention away from lookout duty, if done by the same person alone."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> at the start of a quiet watch, one officer alone has plenty of attention to spare. Add realistic concurrent duties below to see how quickly that changes.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four duties are now stacked on one person. This is precisely why COLREGs requires a dedicated lookout separate from the OOW, and why a full bridge team is assembled for higher-risk conditions \u2014 spreading these duties across multiple qualified people, not asking one person to do everything at once, is the actual safety design.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>
