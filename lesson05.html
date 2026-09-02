@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Cargo Operations | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 2, Lesson 5 of the Maritime Operations &amp; Industry Fundamentals curriculum: Loading a ship correctly is a planning problem as much as a physical one — get the sequence, weight distribution, or paperwork wrong, and the consequences range from a delayed sailing to a genuine stability hazard.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 2 · Lesson 5 · 3 hours Contact</span>
+    <h1>Cargo Operations</h1>
+    <p class="tagline">Loading a ship correctly is a planning problem as much as a physical one — get the sequence, weight distribution, or paperwork wrong, and the consequences range from a delayed sailing to a genuine stability hazard.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">Loading &amp; Discharging</a>
+    <a href="#s2" data-section="s2">Stowage Planning</a>
+    <a href="#s3" data-section="s3">Dangerous Goods</a>
+    <a href="#s4" data-section="s4">Bill of Lading</a>
+    <a href="#s5" data-section="s5">Special Cargo</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>A ship doesn't just get "loaded" the way a truck gets loaded — where and in what order cargo goes aboard is the product of careful planning, because a vessel's stability, structural stress, and even the order in which cargo can be discharged at later ports all depend on decisions made before a single container or tonne of bulk cargo crosses the rail. This lesson covers that planning process, the special handling dangerous goods require, the paperwork that legally represents cargo in transit, and a few of the special cargo types that complicate an otherwise routine loading.</p>
+      <p>As with the rest of this course, the goal is literacy, not qualification: you should finish this lesson able to explain why a stowage plan exists and what a bill of lading actually does, without needing to draw one yourself.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Loading a ship is closer to packing a moving truck for a multi-stop delivery route than to simply filling a container: you have to think about weight distribution (so the truck doesn't tip), about what needs to come out first (so it goes in last), and about which items can't be packed next to each other (so a leaking can doesn't ruin the boxes next to it). Cargo operations do all of this at a much larger scale, with legal paperwork attached to every item.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Describe the basic sequence of loading and discharging cargo at a port call.</li>
+        <li>Explain what a stowage plan is and why weight distribution and stability matter when loading a ship.</li>
+        <li>Describe what the IMDG Code covers and why dangerous goods require special handling and segregation.</li>
+        <li>Explain what a bill of lading is and its three core functions.</li>
+        <li>Identify common special cargo considerations, including heavy-lift, refrigerated, and deck cargo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📦</span>
+      <h2>The Loading &amp; Discharging Sequence</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Before a ship even arrives at berth, its officers and the terminal's cargo planners exchange a proposed cargo plan detailing what will load or discharge, in what sequence, and where each item will sit aboard. Once alongside, hatches (or, for a container ship, cell guides) are opened, cranes or ramps begin working according to that plan, and a <dfn id="def-tally">tally clerk</dfn> counts and records each unit of cargo crossing the ship's rail — a running physical count that must match the paperwork described later in this lesson.</p>
+    <p>Discharging follows a mirror-image logic: cargo due off at the current port must be accessible without needing to move cargo destined for a later port out of the way first — which is exactly why the stowage plan in Section 2 has to account for a ship's entire multi-port itinerary, not just the next call.</p>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📐</span>
+      <h2>Stowage Planning &amp; Basic Stability</h2>
+      <span class="module-time">≈ 40 min</span>
+    </div>
+    <p>A <dfn id="def-stowage-plan">stowage plan</dfn> (sometimes called a bay plan on a container ship) is a detailed diagram showing exactly where every unit of cargo sits aboard the vessel — which hold, which tier, which position. It exists to solve several problems simultaneously: distributing weight so the ship remains stable and its hull isn't overstressed, keeping incompatible cargoes apart, and — on a multi-port voyage — sequencing cargo so nothing bound for a later port blocks access to cargo due off sooner.</p>
+    <p>Weight distribution affects a vessel's <dfn id="def-stability-basic">stability</dfn> (its tendency to return upright after rolling) and its structural stress (how much bending force the hull itself experiences). Cargo loaded too high raises the ship's center of gravity and can make it dangerously "tender" (slow and excessive to roll); cargo loaded unevenly along the hull's length can overstress the structure. Getting this right is why stowage planning is treated as a specialized skill, not a simple loading checklist.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A container ship calling at three ports needs to load boxes for the second and third ports during the same visit to the first port. The stowage plan places third-port cargo deepest in the hold, second-port cargo above it, and leaves the top tiers open for cargo that will actually load at the second port — ensuring that when the ship reaches the second port, the boxes due off there are accessible without shifting anything destined for the third port.</p></div>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Learners often assume stability is only about weight amount, not weight placement. Emphasize placement: the exact same total cargo weight, stowed differently, can be either perfectly safe or dangerously unstable.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">☣️</span>
+      <h2>Dangerous Goods &amp; the IMDG Code</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>Cargo classified as dangerous — explosives, flammable liquids and gases, corrosives, oxidizers, and several other hazard classes — is governed internationally by the <dfn id="def-imdg">International Maritime Dangerous Goods (IMDG) Code</dfn>, which sets classification, packaging, labeling, and documentation requirements so that everyone handling a shipment, anywhere in the world, understands exactly what it is and how it must be treated.</p>
+    <p>A core IMDG concept is <dfn id="def-segregation">segregation</dfn>: certain hazard classes must be stowed a minimum distance apart, or on entirely separate decks, because they could react dangerously if they came into contact or were involved in the same fire or spill. A shipper must declare dangerous cargo accurately on a <dfn>dangerous goods declaration</dfn>, and a ship's officers cross-check that declaration against the stowage plan before agreeing to load it — misdeclared dangerous cargo is a well-documented cause of major shipboard fires, a topic Lesson 11 examines as a case study.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>IMDG segregation rules work like keeping cleaning chemicals that react dangerously together on separate shelves at home \u2014 except at ship scale, "separate shelves" can mean separate decks, separate holds, or a fire-rated bulkhead between two classes of cargo that must never end up next to each other.</p></div>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📄</span>
+      <h2>The Bill of Lading</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>A <dfn id="def-bol">bill of lading (B/L)</dfn> is the single most important document in cargo shipping, and it does three distinct jobs at once. First, it is a <em>receipt</em>: proof that the carrier actually received the cargo described, in the condition stated. Second, it is <em>evidence of the contract of carriage</em>, referencing the terms under which the cargo is being carried. Third — and most distinctively — it is a <dfn id="def-document-of-title">document of title</dfn>: whoever legitimately holds the original bill of lading has the legal right to claim the cargo at its destination.</p>
+    <p>That third function is why a bill of lading is often described as a <dfn>negotiable</dfn> document: it can be bought, sold, or used as collateral while the cargo is still at sea, because possessing the document is treated as equivalent to possessing the cargo itself for legal and financing purposes. This is also why a carrier will not release cargo to anyone who cannot present a valid original bill of lading, even the cargo's original owner, if that owner has since sold the goods to someone else by transferring the document.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A coffee exporter in Colombia ships 20 containers to a roaster in Germany and receives a bill of lading naming the roaster as consignee. While the ship is still at sea, the roaster resells the coffee to a distributor by endorsing and transferring the bill of lading. When the ship arrives, the carrier releases the cargo to the distributor — who was never the original buyer — because they hold the valid, properly transferred bill of lading, and that document, not the original sales contract, controls who can claim the goods.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🧊</span>
+      <h2>Special Cargo Considerations</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Some cargo types need handling beyond a standard load/discharge sequence. <dfn id="def-heavy-lift">Heavy-lift or project cargo</dfn> — turbines, prefabricated modules, transformers — often exceeds a terminal's normal crane capacity and requires specialized heavy-lift vessels or shore cranes, plus detailed lifting and securing plans. <dfn id="def-reefer">Refrigerated containers (reefers)</dfn> carry temperature-sensitive cargo like produce or pharmaceuticals and must be plugged into the ship's power supply and continuously monitored, since a lost power connection can spoil an entire container's contents within hours.</p>
+    <p><dfn id="def-deck-cargo">Deck cargo</dfn> — containers or equipment carried on the open deck rather than below — must be lashed and secured against the ship's motion in open seas, and is more exposed to weather damage and, in extreme conditions, loss overboard than cargo stowed below deck. Each of these special cases is really the same lesson from Section 2 applied more strictly: cargo needs the right plan, not just the right hold.</p>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Concept to Its Definition</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each concept below, select the definition that matches it. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Concept</th><th scope="col">Definition</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="stowage">
+                <td>A diagram showing exactly where every unit of cargo sits aboard a vessel</td>
+                <td>
+                  <select aria-label="concept for a diagram of cargo positions">
+                    <option value="">— Select —</option>
+                    <option value="stowage">Stowage plan</option>
+                    <option value="bol">Bill of lading</option>
+                    <option value="imdg">IMDG Code</option>
+                    <option value="segregation">Segregation</option>
+                    <option value="tally">Tally</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="bol">
+                <td>A document that is simultaneously a receipt, contract evidence, and title to the cargo</td>
+                <td>
+                  <select aria-label="concept for receipt, contract evidence, and title document">
+                    <option value="">— Select —</option>
+                    <option value="stowage">Stowage plan</option>
+                    <option value="bol">Bill of lading</option>
+                    <option value="imdg">IMDG Code</option>
+                    <option value="segregation">Segregation</option>
+                    <option value="tally">Tally</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="imdg">
+                <td>The international code governing classification and handling of dangerous cargo</td>
+                <td>
+                  <select aria-label="concept for the code governing dangerous cargo">
+                    <option value="">— Select —</option>
+                    <option value="stowage">Stowage plan</option>
+                    <option value="bol">Bill of lading</option>
+                    <option value="imdg">IMDG Code</option>
+                    <option value="segregation">Segregation</option>
+                    <option value="tally">Tally</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="segregation">
+                <td>Keeping incompatible dangerous-goods classes a minimum distance or deck apart</td>
+                <td>
+                  <select aria-label="concept for keeping incompatible goods apart">
+                    <option value="">— Select —</option>
+                    <option value="stowage">Stowage plan</option>
+                    <option value="bol">Bill of lading</option>
+                    <option value="imdg">IMDG Code</option>
+                    <option value="segregation">Segregation</option>
+                    <option value="tally">Tally</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="tally">
+                <td>The running physical count of cargo units crossing the ship's rail during loading</td>
+                <td>
+                  <select aria-label="concept for counting cargo crossing the rail">
+                    <option value="">— Select —</option>
+                    <option value="stowage">Stowage plan</option>
+                    <option value="bol">Bill of lading</option>
+                    <option value="imdg">IMDG Code</option>
+                    <option value="segregation">Segregation</option>
+                    <option value="tally">Tally</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: Cargo Plan Margin for Error</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A simple, single-port, general cargo load has a lot of planning margin. Toggle each real-world complication below to see how quickly that margin shrinks — and why professional cargo planners exist.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Cargo complications">
+          <button type="button" class="sim-toggle" data-conn="multiport" aria-pressed="false">Add a third discharge port</button>
+          <button type="button" class="sim-toggle" data-conn="dg" aria-pressed="false">Add a dangerous-goods shipment</button>
+          <button type="button" class="sim-toggle" data-conn="heavylift" aria-pressed="false">Add a heavy-lift item</button>
+          <button type="button" class="sim-toggle" data-conn="reefer" aria-pressed="false">Add temperature-sensitive reefer cargo</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Cargo Plan Margin for Error</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> a single-port, general, non-hazardous cargo load leaves a lot of planning flexibility. Add the complications below to see how the planning problem gets harder.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="c" data-fb-correct="Sequencing cargo by discharge port prevents later-port cargo from blocking access to cargo that needs to come off first." data-fb-incorrect="The reason is accessibility at each discharge port, not tax, fuel cost, or crew pay considerations.">
+        <div class="q-stem"><span class="q-num">Q1.</span>Why must a multi-port voyage's stowage plan account for the entire itinerary, not just the next port?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> Because customs requires it for tax purposes</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> Because fuel costs depend on stowage order</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> Because cargo for a later port must not block access to cargo due off sooner</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> Because crew pay depends on the stowage sequence</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Cargo loaded too high raises the center of gravity, which can make a vessel roll excessively \u2014 a genuine stability hazard." data-fb-incorrect="The concern is stability (a raised center of gravity), not speed or paperwork validity.">
+        <div class="q-stem"><span class="q-num">Q2.</span>What is the main risk of loading cargo too high in a vessel?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> It raises the center of gravity and can make the ship dangerously tender (excessively responsive to rolling)</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> It always increases the ship's top speed</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> It has no effect on stability, only on appearance</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> It automatically voids the bill of lading</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="Segregation rules keep incompatible hazard classes physically separated to prevent dangerous reactions if they came into contact or were involved in the same incident." data-fb-incorrect="Segregation is about physical separation of incompatible classes \u2014 dangerous cargo isn't universally refused, deck-only, or undocumented.">
+        <div class="q-stem"><span class="q-num">Q3.</span>What does IMDG segregation specifically require?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> All dangerous cargo must be refused by every port</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> Dangerous cargo must be carried only on deck</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> Dangerous cargo requires no special documentation</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> Certain incompatible hazard classes must be kept a minimum distance or deck apart</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="The document-of-title function \u2014 possession equals the right to claim cargo, and the document can be bought or sold while cargo is at sea \u2014 is what makes a bill of lading more than a simple receipt." data-fb-incorrect="Fuel consumption, stowage plans, and dangerous-goods-only use are unrelated \u2014 the distinctive function is being a negotiable document of title.">
+        <div class="q-stem"><span class="q-num">Q4.</span>Which of the following is a unique function of a bill of lading that distinguishes it from a simple receipt?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> It sets the ship's fuel consumption rate</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> It serves as a document of title, meaning holding it confers the legal right to claim the cargo</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> It replaces the need for a stowage plan</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> It is only used for dangerous goods shipments</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Reefers rely on continuous power for refrigeration; losing that connection risks spoiling perishable or sensitive cargo quickly." data-fb-incorrect="The real risk is cargo spoilage from lost refrigeration \u2014 not a dangerous-goods reclassification or a paperwork effect.">
+        <div class="q-stem"><span class="q-num">Q5.</span>Why does a lost power connection matter so much for a reefer container?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> Temperature-sensitive cargo inside can spoil within hours without continuous refrigeration</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> It causes the container to become a dangerous-goods shipment automatically</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> It voids the bill of lading immediately</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> It has no real consequence as long as the container is watertight</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner write a short paragraph explaining, in their own words, why a bill of lading being "negotiable" matters commercially — using the coffee-shipment worked example in Section 4 as a model, but describing a different cargo or scenario of their choosing.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.imo.org/en/OurWork/Safety/Pages/DangerousGoods-default.aspx" target="_blank" rel="noopener noreferrer">IMO — IMDG Code</a> — the IMO's overview page for the dangerous goods code introduced in this lesson.</li>
+      <li><a href="https://unctad.org/topic/transport-and-trade-logistics/legal-framework" target="_blank" rel="noopener noreferrer">UNCTAD — Legal Framework for Trade and Transport</a> — background on bills of lading and the broader legal documents governing cargo carriage.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson04.html">← Lesson 4: Basic Navigation &amp; Watchkeeping</a>
+    <a class="nav-btn" href="lesson06.html">Lesson 6: Ship Construction &amp; Systems Overview →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">Loading &amp; Discharging</a></li>
+      <li><a href="#s2">Stowage Planning</a></li>
+      <li><a href="#s3">Dangerous Goods</a></li>
+      <li><a href="#s4">Bill of Lading</a></li>
+      <li><a href="#s5">Special Cargo</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Describe the basic sequence of loading and discharging cargo at a port call.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Explain what a stowage plan is and why weight distribution and stability matter when loading a ship.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Describe what the IMDG Code covers and why dangerous goods require special handling and segregation.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Explain what a bill of lading is and its three core functions.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Identify common special cargo considerations, including heavy-lift, refrigerated, and deck cargo.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s2"><span class="glossary-term">Stowage Plan</span></a><span class="glossary-def">A diagram showing exactly where every unit of cargo is positioned aboard a vessel.</span></li>
+      <li><a href="#s3"><span class="glossary-term">IMDG Code</span></a><span class="glossary-def">The International Maritime Dangerous Goods Code, governing classification, packaging, and handling of hazardous cargo.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Bill of Lading</span></a><span class="glossary-def">A document that serves as a receipt, evidence of the contract of carriage, and a negotiable document of title to cargo.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Segregation</span></a><span class="glossary-def">IMDG requirements keeping incompatible dangerous-goods classes a minimum distance or deck apart.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Reefer</span></a><span class="glossary-def">A refrigerated container requiring continuous powered temperature control for sensitive cargo.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson04.html">← Previous: Lesson 4: Basic Navigation &amp; Watchkeeping</a>
+      <a href="lesson06.html">Next: Lesson 6: Ship Construction &amp; Systems Overview →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 5 · Day 2 · Cargo Operations<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { multiport: false, dg: false, heavylift: false, reefer: false };
+  var simMessages = {
+    multiport: "Third discharge port added: the stowage plan must now sequence cargo so nothing for the final port blocks access to cargo due off at the second port \u2014 a pure sequencing constraint with no flexibility once loading begins.",
+    dg: "Dangerous-goods shipment added: IMDG segregation rules now restrict which holds or deck positions this cargo (and cargo near it) can occupy, cutting into the planner's available options.",
+    heavylift: "Heavy-lift item added: this single piece may exceed normal crane capacity and needs a dedicated lift plan and specific structural support points \u2014 the plan now has to work around one oversized constraint.",
+    reefer: "Reefer cargo added: this cargo needs a powered plug position and continuous monitoring, restricting it to specific reefer-equipped slots rather than any open stowage position."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> a single-port, general, non-hazardous cargo load leaves a lot of planning flexibility. Add the complications below to see how the planning problem gets harder.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four complications are now active. Each one independently narrows the planner's options, and together they can leave only a handful of technically valid stowage plans out of thousands of theoretical arrangements \u2014 which is exactly why stowage planning is a specialized, trained skill rather than a simple checklist.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

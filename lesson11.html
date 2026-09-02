@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Safety Culture &amp; Incident Types | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 5, Lesson 11 of the Maritime Operations &amp; Industry Fundamentals curriculum: Groundings, collisions, fires, and pollution incidents rarely have one cause. This lesson reads real and composite case studies through the lens of how safety actually fails — and how it's rebuilt afterward.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 5 · Lesson 11 · 3 hours Contact</span>
+    <h1>Safety Culture &amp; Incident Types</h1>
+    <p class="tagline">Groundings, collisions, fires, and pollution incidents rarely have one cause. This lesson reads real and composite case studies through the lens of how safety actually fails — and how it's rebuilt afterward.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">Safety Culture</a>
+    <a href="#s2" data-section="s2">Incident Causation</a>
+    <a href="#s3" data-section="s3">Case Study: Grounding</a>
+    <a href="#s4" data-section="s4">Case Study: Collision</a>
+    <a href="#s5" data-section="s5">Reporting &amp; Feedback</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Every convention in Lesson 8, and much of the construction detail in Lesson 6, exists because of an incident. This lesson looks directly at the major categories of physical and operational maritime incident — grounding, collision, fire, and pollution — not to dwell on tragedy, but to understand the pattern investigators keep finding: serious incidents are almost never caused by one single failure. They happen when several smaller, individually survivable problems line up at the same time.</p>
+      <p>This lesson is explicitly about physical and operational safety, not cybersecurity — that subject, and how it fits alongside these same incident-causation ideas, is exactly where the companion Maritime OT Security course (previewed in Lesson 12) picks up.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Imagine several slices of Swiss cheese stacked together, each slice representing one layer of defense — a rule, a piece of equipment, a trained habit. Each slice has holes (weaknesses) in different places. Most of the time, a hole in one slice is blocked by solid cheese in the next. An incident happens on the rare occasion when the holes in every single slice happen to line up at once, letting a hazard pass straight through every layer of defense. This is the "Swiss cheese model" investigators use to explain why serious incidents are almost always multi-causal.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Explain what safety culture means beyond simple rule compliance.</li>
+        <li>Describe the Swiss cheese (multi-layered defense) model of incident causation.</li>
+        <li>Identify the defining features of grounding, fire, and pollution incidents through case studies.</li>
+        <li>Explain the role of near-miss reporting and a "just culture" in preventing incidents.</li>
+        <li>Explain how incident investigation findings have historically fed back into regulation and design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🛡️</span>
+      <h2>What Is Safety Culture?</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p><dfn id="def-safety-culture">Safety culture</dfn> is the set of shared values, attitudes, and everyday behaviors around risk — distinct from simply having safety rules and equipment aboard. A ship can technically comply with every SOLAS and ISM Code requirement from Lesson 8 and still have a weak safety culture, if crew feel unable to report problems, if shortcuts are quietly tolerated to save time, or if raising a concern is seen as complaining rather than professionalism.</p>
+    <p>A genuine safety culture empowers anyone aboard — not only the master invoking the overriding authority from Lesson 4 — to pause an unsafe activity without fear of blame, on the understanding that a false alarm costs far less than a missed one. This is the practical, day-to-day expression of everything the conventions in Lesson 8 are trying to achieve on paper.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Ask learners for a non-maritime example of "rules followed, but culture weak" from their own experience (a workplace, a lab, a kitchen) \u2014 this concept transfers easily once anchored to something familiar.</p></div>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🧀</span>
+      <h2>The Incident Causation Model</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>The <dfn id="def-swiss-cheese">Swiss cheese model</dfn>, developed by psychologist James Reason, frames serious incidents as the alignment of weaknesses across multiple independent layers of defense — procedures, training, equipment, supervision — rather than the result of one person's single mistake. Investigators use this model specifically to resist the temptation to stop investigating once they've found one plausible cause; a thorough investigation keeps asking what else had to also go wrong for that one factor to result in an actual incident.</p>
+    <p>This model reframes the case studies in the rest of this lesson: each one involves a specific triggering event, but each also involves several contributing factors — a maintenance decision, a communication gap, a design limitation, a weather condition — none of which alone would likely have caused the outcome. That reframing is deliberate, and it's the same reasoning this course applies throughout: understanding a system, whether it's the shipping industry's ownership structure or an incident's causes, means resisting single-factor explanations.</p>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">⛵</span>
+      <h2>Case Study: Grounding — the 2021 Suez Canal Blockage</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>In March 2021, the ultra-large container ship <em>Ever Given</em> grounded diagonally across the Suez Canal, blocking one of the world's busiest shipping chokepoints for roughly six days and disrupting a substantial share of global east-west trade until the vessel was refloated. Investigations and public reporting pointed to a combination of contributing factors rather than one single cause: strong winds and a sandstorm affecting the very large hull's windage, hydrodynamic effects related to a large ship transiting a narrow, shallow channel (sometimes described as bank effect and squat), and questions raised about speed and passage planning through that specific stretch of canal.</p>
+    <p>The incident is a vivid illustration of two ideas from earlier lessons at once: Lesson 1's point about ship size (the largest container ships bring real handling challenges specific to their scale) and Lesson 2's point about global trade concentration (a huge share of world trade routes through a small number of chokepoints, so a single grounding can ripple through supply chains worldwide within days).</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>Analysts estimated that the six-day blockage held up billions of dollars of trade per day at its peak, with knock-on delays affecting shipping schedules, freight rates, and connected cargo (some of it perishable or time-sensitive) for weeks afterward — a scale of consequence entirely disproportionate to a single vessel's grounding, precisely because of how much global trade funnels through that one canal.</p></div>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">💥</span>
+      <h2>Case Study: Collision — a Composite Crossing-Situation Scenario</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>Rather than a single named incident, this section uses a composite scenario built from patterns that recur across real collision investigations, because the underlying causal pattern matters more here than any one vessel's name: two vessels converge in a crossing situation (the COLREGs scenario from Lesson 4). The give-way vessel's watch officer, alone on a busy bridge without a dedicated lookout, is absorbed in a routine administrative task and doesn't notice the developing risk of collision in time. The stand-on vessel, per COLREGs, maintains course and speed, correctly expecting the other vessel to act — until it becomes clear that it isn't going to, at which point avoiding action is taken too late to prevent contact.</p>
+    <p>Real investigations into collisions like this one consistently point to the same recurring contributing factors: an inadequate or absent dedicated lookout, over-reliance on radar/ARPA without proper visual cross-checks, fatigue, and a bridge team that functioned as one overloaded individual rather than the team model from Lesson 4. None of these factors alone typically causes a collision — together, they are the Swiss cheese holes lining up.</p>
+    <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>This scenario is exactly what Lesson 4's bridge-workload simulation modeled: stack enough concurrent duties onto one watch officer, remove the dedicated lookout, and the probability of missing a developing risk climbs sharply \u2014 not because any one person was careless, but because the workload design left too little margin for error.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🔥</span>
+      <h2>Case Study: Fire &amp; Pollution, and Feeding Findings Back into Regulation</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>In May 2021, the container ship <em>X-Press Pearl</em> caught fire off the coast of Sri Lanka while carrying, among other cargo, nitric acid and other chemicals; a leak had reportedly been identified in port calls earlier in the voyage, but the vessel was not able to offload the affected cargo before the fire developed at sea. The vessel burned for days and eventually sank, releasing cargo debris — including a large quantity of plastic resin pellets — that caused one of the more significant marine pollution incidents in the region's recent history, affecting beaches and marine life along the Sri Lankan coastline.</p>
+    <p>This case connects directly back to Lesson 5's dangerous goods and IMDG content: accurate declaration, proper segregation, and a timely response to a known leak are exactly the safeguards that section described, and gaps in any of them are widely discussed as contributing factors in this incident. It also illustrates why <dfn id="def-near-miss">near-miss reporting</dfn> matters — an earlier, non-catastrophic leak being taken seriously and acted on decisively is precisely the kind of intervention a strong safety culture and a <dfn id="def-just-culture">just culture</dfn> (one that distinguishes honest error deserving support from genuine recklessness deserving accountability) is designed to encourage, rather than being downplayed to avoid delay or blame.</p>
+    <p>Every major incident this lesson has covered eventually fed back into the regulatory system from Lessons 7 and 8: the Titanic into SOLAS, the Exxon Valdez into MARPOL's double-hull requirement, the Herald of Free Enterprise into the ISM Code. Investigations by flag states and international bodies under the IMO's Casualty Investigation Code exist specifically to close this loop — turning a specific incident's contributing factors into a durable, generalized rule that (ideally) prevents the same alignment of failures from recurring elsewhere.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>Close this lesson by asking learners to predict, out loud, what a plausible regulatory or design response to a documented gap in dangerous-goods leak escalation procedures might look like \u2014 this rehearses the historical pattern just described and previews the forward-looking, generative thinking Lesson 12's capstone will ask of them.</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Incident to Its Defining Feature</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each incident category below, select its defining feature as covered in this lesson. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Incident / Concept</th><th scope="col">Defining Feature</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="grounding">
+                <td>Ever Given, Suez Canal, 2021</td>
+                <td>
+                  <select aria-label="defining feature for the Ever Given incident">
+                    <option value="">— Select —</option>
+                    <option value="grounding">Grounding: hull contacts the seabed or a fixed obstruction</option>
+                    <option value="collision">Collision: two vessels make contact</option>
+                    <option value="fire">Fire: cargo or equipment ignites</option>
+                    <option value="model">Swiss cheese model: multiple weaknesses align</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="fire">
+                <td>X-Press Pearl, Sri Lanka, 2021</td>
+                <td>
+                  <select aria-label="defining feature for the X-Press Pearl incident">
+                    <option value="">— Select —</option>
+                    <option value="grounding">Grounding: hull contacts the seabed or a fixed obstruction</option>
+                    <option value="collision">Collision: two vessels make contact</option>
+                    <option value="fire">Fire: cargo or equipment ignites</option>
+                    <option value="model">Swiss cheese model: multiple weaknesses align</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="collision">
+                <td>The composite crossing-situation scenario in Section 4</td>
+                <td>
+                  <select aria-label="defining feature for the composite crossing scenario">
+                    <option value="">— Select —</option>
+                    <option value="grounding">Grounding: hull contacts the seabed or a fixed obstruction</option>
+                    <option value="collision">Collision: two vessels make contact</option>
+                    <option value="fire">Fire: cargo or equipment ignites</option>
+                    <option value="model">Swiss cheese model: multiple weaknesses align</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="model">
+                <td>The framework used throughout this lesson to explain multi-causal incidents</td>
+                <td>
+                  <select aria-label="defining feature for the multi-causal incident framework">
+                    <option value="">— Select —</option>
+                    <option value="grounding">Grounding: hull contacts the seabed or a fixed obstruction</option>
+                    <option value="collision">Collision: two vessels make contact</option>
+                    <option value="fire">Fire: cargo or equipment ignites</option>
+                    <option value="model">Swiss cheese model: multiple weaknesses align</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: How Normal Operations Erode Toward an Incident</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>No single factor below causes an incident by itself. Toggle each one to see how a normal operating margin shrinks as they stack — the Swiss cheese model in action.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Contributing factors">
+          <button type="button" class="sim-toggle" data-conn="fatigue" aria-pressed="false">Watch officer is fatigued</button>
+          <button type="button" class="sim-toggle" data-conn="visibility" aria-pressed="false">Visibility is reduced by weather</button>
+          <button type="button" class="sim-toggle" data-conn="maintenance" aria-pressed="false">Equipment maintenance is deferred</button>
+          <button type="button" class="sim-toggle" data-conn="comms" aria-pressed="false">Communication breaks down between watch handovers</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Normal Operations Margin</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> a rested crew, clear visibility, well-maintained equipment, and clean handovers leave a wide safety margin. Add real-world contributing factors below to see that margin shrink.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="b" data-fb-correct="A ship can be fully compliant on paper and still have a weak safety culture if people feel unable to speak up \u2014 culture is about behavior and psychological safety, not just certificates." data-fb-incorrect="Certificates, incident-free records, and modern equipment don't by themselves guarantee a strong safety culture \u2014 the defining feature is empowering people to raise concerns without fear.">
+        <div class="q-stem"><span class="q-num">Q1.</span>What distinguishes a genuine safety culture from mere rule compliance?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> Having every SOLAS certificate up to date</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> Shared values and behaviors that empower anyone to raise a safety concern without fear of blame</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> Never experiencing any incidents at all</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> Having the most modern equipment aboard</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="The model's core claim is that incidents usually require several independent weaknesses to align at once, not one single failure." data-fb-incorrect="The model specifically pushes back against single-cause explanations and against the idea that any one layer of defense is sufficient alone.">
+        <div class="q-stem"><span class="q-num">Q2.</span>What is the central idea of the Swiss cheese model of incident causation?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> Incidents are always caused by a single person's mistake</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> Modern ships are too complex to ever be made safe</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> Serious incidents typically result from weaknesses aligning across multiple independent layers of defense</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> Safety equipment eliminates all incident risk if properly maintained</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Reporting pointed to a combination of weather, hydrodynamic effects, and passage-planning questions \u2014 not a fire, a collision, or a survey failure." data-fb-incorrect="The Ever Given incident was a grounding involving weather and hydrodynamic factors, not a fire, collision, or classification failure \u2014 those describe other case studies or hypotheticals.">
+        <div class="q-stem"><span class="q-num">Q3.</span>What combination of factors did investigations and public reporting associate with the 2021 Ever Given grounding?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> Strong winds/sandstorm, hydrodynamic effects of a large ship in a narrow channel, and questions about speed and passage planning</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> A dangerous-goods fire that spread to the engine room</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> A collision with another vessel in the canal</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> A failure of the vessel's classification society survey</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="A reported leak taken seriously and acted on early is exactly the kind of intervention near-miss reporting and a just culture are meant to encourage." data-fb-incorrect="Near-miss reporting is broadly applicable (not passenger-only) and doesn't replace IMDG declarations \u2014 its value is enabling early action before a warning sign escalates.">
+        <div class="q-stem"><span class="q-num">Q4.</span>Why does near-miss reporting matter to preventing incidents like the X-Press Pearl fire?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> It has no real preventive value</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> It is required only for passenger vessels</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> It replaces the need for dangerous-goods declarations</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Acting decisively on an earlier, non-catastrophic warning sign (like a reported leak) can prevent escalation into a full incident</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="The Casualty Investigation Code structures how incidents are investigated, closing the loop between real incidents and the regulatory changes covered in Lesson 8." data-fb-incorrect="The code isn't about assigning automatic criminal liability or cancelling insurance \u2014 it structures investigation so findings inform future regulation, directly connected to Lesson 8's conventions.">
+        <div class="q-stem"><span class="q-num">Q5.</span>What role does the IMO's Casualty Investigation Code play after a serious maritime incident?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> It assigns criminal liability to the vessel's crew automatically</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> It cancels the vessel's insurance</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> It provides a framework for investigating incidents so findings can feed back into regulation and design</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> It has no connection to the regulatory conventions from Lesson 8</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner pick one of this lesson's case studies (or the composite collision scenario) and list at least three separate contributing factors, explicitly avoiding a single-cause explanation \u2014 directly applying the Swiss cheese model rather than just summarizing what happened.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.imo.org/en/OurWork/MSAS/Pages/CasualtyInvestigation.aspx" target="_blank" rel="noopener noreferrer">IMO — Casualty Investigation Code</a> — the IMO framework for formal incident investigation referenced in this lesson.</li>
+      <li><a href="https://gcaptain.com/tag/ever-given/" target="_blank" rel="noopener noreferrer">gCaptain — Ever Given coverage archive</a> — ongoing industry reporting on the 2021 Suez Canal grounding used as this lesson's grounding case study.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson10.html">← Lesson 10: Maritime Commerce &amp; Chartering</a>
+    <a class="nav-btn" href="lesson12.html">Lesson 12: Capstone — Build &amp; Teach Your Own Module →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">Safety Culture</a></li>
+      <li><a href="#s2">Incident Causation</a></li>
+      <li><a href="#s3">Case Study: Grounding</a></li>
+      <li><a href="#s4">Case Study: Collision</a></li>
+      <li><a href="#s5">Reporting &amp; Feedback</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Explain what safety culture means beyond simple rule compliance.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Describe the Swiss cheese (multi-layered defense) model of incident causation.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Identify the defining features of grounding, fire, and pollution incidents through case studies.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Explain the role of near-miss reporting and a "just culture" in preventing incidents.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Explain how incident investigation findings have historically fed back into regulation and design.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Safety Culture</span></a><span class="glossary-def">Shared values and everyday behaviors around risk, distinct from simply having rules and equipment in place.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Swiss Cheese Model</span></a><span class="glossary-def">A framework describing incidents as the alignment of weaknesses across multiple independent layers of defense.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Near-Miss Reporting</span></a><span class="glossary-def">Reporting non-catastrophic warning signs so they can be addressed before escalating into a full incident.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Just Culture</span></a><span class="glossary-def">A culture that distinguishes honest error deserving support from genuine recklessness deserving accountability.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Casualty Investigation Code</span></a><span class="glossary-def">The IMO framework for investigating maritime incidents so findings can inform future regulation and design.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson10.html">← Previous: Lesson 10: Maritime Commerce &amp; Chartering</a>
+      <a href="lesson12.html">Next: Lesson 12: Capstone — Build &amp; Teach Your Own Module →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 11 · Day 5 · Safety Culture &amp; Incident Types<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { fatigue: false, visibility: false, maintenance: false, comms: false };
+  var simMessages = {
+    fatigue: "Fatigue added: reaction time and judgment degrade, and a developing risk is more likely to be noticed late.",
+    visibility: "Reduced visibility added: the margin for visual detection of another vessel or hazard shrinks, increasing reliance on radar and procedure alone.",
+    maintenance: "Deferred maintenance added: equipment that should provide an extra layer of defense (an alarm, a backup system) may not perform as expected exactly when it's needed.",
+    comms: "Handover communication breakdown added: the incoming watch officer may not have the full picture the outgoing officer had, reintroducing risks that were already being actively managed."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> a rested crew, clear visibility, well-maintained equipment, and clean handovers leave a wide safety margin. Add real-world contributing factors below to see that margin shrink.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four factors are now active at once. This is not a prediction that an incident will definitely occur \u2014 it's a demonstration of exactly how the Swiss cheese model's holes line up: none of these four factors is unusual in isolation, but together they remove nearly every layer of defense standing between a normal watch and a serious incident.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

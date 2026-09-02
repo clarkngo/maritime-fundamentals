@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maritime Operations &amp; Industry Fundamentals | Course Navigation</title>
+<meta name="description" content="A 12-lesson, 5-day prerequisite primer on the maritime industry — ships, shipping companies, ports, navigation, cargo, ship construction, and the regulatory and commercial ecosystem — for learners entirely new to shipping.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background 0.3s, color 0.3s; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  header { background: var(--header-bg); color: var(--header-text); padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .header-inner { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .header-brand { display: flex; align-items: center; gap: 14px; }
+  .brand-icon { width: 44px; height: 44px; background: var(--accent); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 900; color: var(--on-accent); flex-shrink: 0; letter-spacing: -0.5px; }
+  .brand-text h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.2; }
+  .brand-text p { font-size: 0.78rem; opacity: 0.65; margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .course-badge { background: var(--accent); color: var(--on-accent); font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .author-pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: var(--header-text); text-decoration: none; padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+  .author-pill:hover { background: rgba(255,255,255,0.2); }
+  .theme-toggle { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); color: var(--header-text); cursor: pointer; padding: 7px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit; display: flex; align-items: center; gap: 6px; transition: background 0.2s; }
+  .theme-toggle:hover { background: rgba(255,255,255,0.22); }
+
+  .hero { background: linear-gradient(135deg, #0a1a2b 0%, #103a4d 55%, #0e749033 100%); color: #fff; padding: 40px 24px 36px; text-align: center; position: relative; overflow: hidden; }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; }
+  .hero p { opacity: 0.8; font-size: 0.96rem; max-width: 680px; margin: 0 auto 18px; line-height: 1.55; }
+  .strand-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .strand-pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; font-weight: 500; }
+  .strand-pill span { font-weight: 800; margin-left: 4px; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 48px; }
+  .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+  .acc-section { margin-bottom: 32px; }
+  .acc-trigger { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; padding: 0 0 8px; margin: 0; border-bottom: 1px solid var(--border); }
+  .acc-trigger-text { display: flex; align-items: baseline; gap: 10px; }
+  .acc-trigger .section-label { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .acc-trigger .acc-count { font-size: 0.72rem; font-weight: 700; color: var(--accent); background: var(--accent-light); border: 1px solid var(--accent); border-radius: 10px; padding: 1px 8px; }
+  .acc-chevron { flex: none; font-size: 1rem; color: var(--accent); transition: transform .2s ease; }
+  .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(180deg); }
+  .acc-trigger:hover { opacity: .8; }
+  .acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .acc-panel-inner { padding-top: 20px; }
+  .acc-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .safeguards { background: var(--surface); border: 2px solid var(--accent); border-radius: 14px; padding: 20px 22px; margin-bottom: 32px; box-shadow: var(--shadow); }
+  .safeguards-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+  .safeguards-head h3 { font-size: 1.02rem; font-weight: 800; color: var(--accent); }
+  .safeguards > p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; max-width: 78ch; }
+  .safeguard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .safeguard-item { background: var(--surface2); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 10px; padding: 12px 14px; }
+  .safeguard-item h4 { font-size: 0.84rem; font-weight: 700; margin-bottom: 4px; }
+  .safeguard-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; }
+  .safeguards-foot { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+  .safeguards-foot a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .safeguards-foot a:hover { text-decoration: underline; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; text-decoration: none; color: var(--text); display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; box-shadow: var(--shadow); cursor: pointer; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); background: var(--card-hover); }
+  .card-accent-bar { height: 5px; background: var(--accent); }
+  .card.strand-found  .card-accent-bar { background: var(--tag-found); }
+  .card.strand-proto  .card-accent-bar { background: var(--tag-proto); }
+  .card.strand-gov    .card-accent-bar { background: var(--tag-gov); }
+  .card.strand-idm    .card-accent-bar { background: var(--tag-idm); }
+  .card.strand-ops    .card-accent-bar { background: var(--tag-ops); }
+  .card.strand-special .card-accent-bar { background: linear-gradient(90deg, var(--accent), var(--tag-proto)); }
+
+  .card-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .card-header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .lesson-num { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; flex-shrink: 0; margin-top: 2px; }
+  .strand-tag { font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; text-align: right; }
+  .tag-found   { color: var(--tag-found);  background: var(--tag-found-bg); }
+  .tag-proto   { color: var(--tag-proto);  background: var(--tag-proto-bg); }
+  .tag-gov     { color: var(--tag-gov);    background: var(--tag-gov-bg); }
+  .tag-idm     { color: var(--tag-idm);    background: var(--tag-idm-bg); }
+  .tag-ops     { color: var(--tag-ops);    background: var(--tag-ops-bg); }
+  .tag-special { color: var(--accent);     background: var(--accent-light); }
+
+  .card-title { font-size: 1.02rem; font-weight: 700; line-height: 1.3; color: var(--text); }
+  .card-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; flex: 1; }
+  .safety-flag { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; font-size: 0.68rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 3px 8px; letter-spacing: 0.02em; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--border); background: var(--surface2); }
+  .card-terms { font-size: 0.72rem; color: var(--text-muted); }
+  .card-terms strong { color: var(--text); font-weight: 600; }
+  .card-arrow { font-size: 1rem; color: var(--text-muted); transition: transform 0.2s; }
+  .card:hover .card-arrow { transform: translateX(4px); }
+
+  .special-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin-bottom: 12px; }
+  .card.special-card { border: 2px solid var(--accent); }
+  .card.special-card .card-title { color: var(--accent); }
+
+  .progress-strip { display: flex; gap: 4px; margin-bottom: 28px; align-items: center; }
+  .progress-block { height: 6px; border-radius: 3px; flex: 1; }
+
+  .framework-accordion { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--tag-gov); border-radius: 14px; margin-bottom: 40px; box-shadow: var(--shadow); overflow: hidden; }
+  .framework-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--surface2); border: none; cursor: pointer; padding: 18px 22px; font-family: inherit; color: var(--text); text-align: left; }
+  .framework-toggle:hover { background: var(--card-hover); }
+  .framework-toggle-left { display: flex; align-items: center; gap: 12px; }
+  .toggle-caret { font-size: 0.9rem; color: var(--tag-gov); transition: transform 0.2s; flex-shrink: 0; width: 1em; display: inline-block; }
+  .framework-toggle-title { font-size: 1.02rem; font-weight: 800; }
+  .framework-toggle-title .subtitle { display: block; font-size: 0.78rem; font-weight: 500; color: var(--text-muted); text-transform: none; letter-spacing: normal; margin-top: 2px; }
+  .toggle-badge { font-size: 0.68rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; color: var(--tag-gov); background: var(--tag-gov-bg); text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; white-space: nowrap; }
+  .framework-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .framework-content.open { max-height: 2400px; }
+  .framework-content-inner { padding: 4px 22px 22px; }
+  .framework-intro { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; max-width: 84ch; margin: 14px 0 18px; }
+  .framework-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  @media (max-width: 520px) { .framework-toggle { padding: 16px; } }
+
+  .next-course-banner { background: linear-gradient(135deg, #0a1a2b 0%, #103a4d 60%, #0e749055 100%); border-radius: 16px; padding: 24px 26px; margin-bottom: 40px; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; box-shadow: var(--shadow); }
+  .next-course-banner h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; }
+  .next-course-banner p { font-size: 0.86rem; opacity: 0.85; max-width: 60ch; margin: 0; }
+  .next-course-btn { background: #fff; color: #0a1a2b; text-decoration: none; font-weight: 800; font-size: 0.85rem; padding: 10px 20px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+  .next-course-btn:hover { background: var(--accent-light); }
+
+  footer { text-align: center; padding: 20px; font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 8px; line-height: 1.6; }
+  footer a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    .header-inner { padding: 14px 16px; }
+    .brand-text h1 { font-size: 1rem; }
+    .hero h2 { font-size: 1.3rem; }
+    main { padding: 24px 16px 40px; }
+    .card-footer { flex-direction: column; align-items: flex-start; }
+    .next-course-banner { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .card:hover { transform: none; }
+    .card:hover .card-arrow { transform: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="brand-icon">MOF</div>
+      <div class="brand-text">
+        <h1>Maritime Operations &amp; Industry Fundamentals</h1>
+        <p>A Prerequisite Primer for Anyone New to the Maritime Industry — 12 Lessons / 5 Days</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="course-badge">MOF-101</span>
+      <a class="author-pill" href="profile.html">👤 Clark Ngo</a>
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+  <h2>Course Navigation</h2>
+  <p>A ground-floor introduction for people with no shipping background at all: what ships actually carry, how the industry that owns and runs them is structured, how ports and cargo operations work, what happens on a bridge, and the regulatory and commercial ecosystem — IMO, flag states, classification societies, SOLAS, MARPOL, chartering — that governs all of it. This course builds the industry fluency the companion Maritime OT Security course assumes.</p>
+  <div class="strand-pills">
+    <div class="strand-pill">Industry Foundations <span>3</span></div>
+    <div class="strand-pill">Operations Aboard <span>3</span></div>
+    <div class="strand-pill">Regulatory Ecosystem <span>2</span></div>
+    <div class="strand-pill">People &amp; Commerce <span>2</span></div>
+    <div class="strand-pill">Safety <span>1</span></div>
+    <div class="strand-pill">Capstone <span>1</span></div>
+  </div>
+  </div>
+</div>
+
+<main>
+
+  <section class="acc-section" id="safeguards-acc">
+    <h3>
+      <button class="acc-trigger" aria-expanded="true" aria-controls="safeguards-panel" id="safeguards-trigger">
+        <span class="acc-trigger-text"><span class="section-label" style="margin:0;">⚠️ Safeguards &amp; Responsible Use</span><span class="course-badge">Read first</span></span>
+        <span class="acc-chevron" aria-hidden="true">▾</span>
+      </button>
+    </h3>
+    <div class="acc-panel" id="safeguards-panel" role="region" aria-labelledby="safeguards-trigger">
+    <div class="acc-panel-inner">
+    <div class="safeguards" aria-labelledby="safeguards-title">
+    <p>This course carries none of the live-equipment risk of a hands-on OT or engineering course — there is no physical machinery, live vessel, or production network involved anywhere in it. The same care still applies to accuracy, data handling, and responsible use of generated content. These rules apply to every lesson and activity in this course.</p>
+    <div class="safeguard-grid">
+      <div class="safeguard-item"><h4>Simulation-based scenarios only</h4><p>Every activity and toggle simulation in this course runs on synthesized, illustrative scenarios. Nothing is built to represent, or to be mistaken for, a specific real vessel's or company's actual operating data.</p></div>
+      <div class="safeguard-item"><h4>No real vessel or company data</h4><p>Case studies (Lesson 11) discuss documented, publicly reported incidents for learning purposes. Coursework, discussion, and any published work should avoid introducing non-public vessel, port, or company data from a learner's own workplace.</p></div>
+      <div class="safeguard-item"><h4>Review AI-generated content</h4><p>Any generated lesson text, quiz item, or graphic gets a subject-matter accuracy review and a source check before it is used or shared further. The instructor owns the accuracy.</p></div>
+      <div class="safeguard-item"><h4>Accessible and equitable by default</h4><p>Materials aim for WCAG 2.2 AA and work by keyboard. No activity depends on a paid license or vendor account a learner cannot obtain.</p></div>
+      <div class="safeguard-item"><h4>Case studies are analyzed, not sensationalized</h4><p>Real incidents (Lesson 11) are examined for cause, impact, and lesson learned — read as case studies to reason about, not retold for dramatic effect or to assign blame beyond what public investigations have established.</p></div>
+      <div class="safeguard-item"><h4>No professional certification implied</h4><p>Completing this course does not confer STCW certification, a professional license, or any formal maritime qualification — it builds industry literacy as a foundation for further study or professional training.</p></div>
+    </div>
+    <div class="safeguards-foot">
+      <span>Review this policy before Lesson 1.</span>
+      <a href="safeguards.html">Read the full policy →</a>
+    </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <div class="section-label">📚 Course Lessons — 12 Lessons / 5 Days</div>
+
+  <div class="progress-strip" aria-hidden="true">
+    <div class="progress-block" style="background:var(--tag-found);"></div>
+    <div class="progress-block" style="background:var(--tag-found);"></div>
+    <div class="progress-block" style="background:var(--tag-found);"></div>
+    <div class="progress-block" style="background:var(--tag-proto);"></div>
+    <div class="progress-block" style="background:var(--tag-proto);"></div>
+    <div class="progress-block" style="background:var(--tag-proto);"></div>
+    <div class="progress-block" style="background:var(--tag-gov);"></div>
+    <div class="progress-block" style="background:var(--tag-gov);"></div>
+    <div class="progress-block" style="background:var(--tag-idm);"></div>
+    <div class="progress-block" style="background:var(--tag-idm);"></div>
+    <div class="progress-block" style="background:var(--tag-ops);"></div>
+    <div class="progress-block" style="background:var(--accent);"></div>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card strand-found" href="lesson01.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 1 · Lesson 1</span>
+          <span class="strand-tag tag-found">Foundations</span>
+        </div>
+        <div class="card-title">Ships &amp; Vessel Types</div>
+        <div class="card-desc">A field guide to the vessels that move the world's cargo: bulk carriers, container ships, tankers, ro-ro and cruise vessels, and the offshore support vessels and tugs that support them.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Bulk Carrier, TEU, Double Hull, Ro-Ro, Bollard Pull</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-found" href="lesson02.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 1 · Lesson 2</span>
+          <span class="strand-tag tag-found">Foundations</span>
+        </div>
+        <div class="card-title">The Global Shipping Industry</div>
+        <div class="card-desc">Why roughly 80-90% of world trade moves by sea, the separate roles of shipowner, ship manager, and operator/charterer, and how a voyage actually gets commissioned.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Shipowner, Ship Manager, Charter Party, Open Registry, Economies of Scale</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-found" href="lesson03.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 1 · Lesson 3</span>
+          <span class="strand-tag tag-found">Foundations</span>
+        </div>
+        <div class="card-title">Ports &amp; Terminals</div>
+        <div class="card-desc">The landlord port model, how container, dry bulk, and liquid terminals differ, what stevedoring is, and what actually makes a port efficient.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Landlord Port, Terminal Operating System, Tank Farm, Stevedore, Hinterland</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-proto" href="lesson04.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 2 · Lesson 4</span>
+          <span class="strand-tag tag-proto">Operations</span>
+        </div>
+        <div class="card-title">Basic Navigation &amp; Watchkeeping</div>
+        <div class="card-desc">Bridge team roles, watch schedules, the basic give-way/stand-on logic of COLREGs, voyage planning, and the pilot's role in restricted waters.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Master, OOW, COLREGs, Passage Plan, Pilot</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-proto" href="lesson05.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 2 · Lesson 5</span>
+          <span class="strand-tag tag-proto">Operations</span>
+        </div>
+        <div class="card-title">Cargo Operations</div>
+        <div class="card-desc">Loading and discharging sequence, stowage planning and basic stability, the IMDG Code and dangerous goods segregation, and what a bill of lading actually does.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Stowage Plan, IMDG Code, Bill of Lading, Segregation, Reefer</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-proto" href="lesson06.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 2 · Lesson 6</span>
+          <span class="strand-tag tag-proto">Operations</span>
+        </div>
+        <div class="card-title">Ship Construction &amp; Systems Overview</div>
+        <div class="card-desc">A plain-language, non-technical tour of hull structure, watertight subdivision, propulsion, general arrangement, and ballast systems.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Keel, Bulkhead, Controllable-Pitch Propeller, General Arrangement, Ballast</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-gov" href="lesson07.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 3 · Lesson 7</span>
+          <span class="strand-tag tag-gov">Regulatory</span>
+        </div>
+        <div class="card-title">The Regulatory Ecosystem</div>
+        <div class="card-desc">Five bodies, five distinct roles: the IMO, flag states, port state control, classification societies, and P&amp;I clubs and insurers.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> IMO, Flag State, Port State Control, Classification Society, P&amp;I Club</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-gov" href="lesson08.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 3 · Lesson 8</span>
+          <span class="strand-tag tag-gov">Regulatory</span>
+        </div>
+        <div class="card-title">Key Maritime Conventions</div>
+        <div class="card-desc">SOLAS, MARPOL, STCW, the ISM Code, and the ISPS Code — five conventions covering five distinct risk domains, at overview level.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> SOLAS, MARPOL, STCW, ISM Code, ISPS Code</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-idm" href="lesson09.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 4 · Lesson 9</span>
+          <span class="strand-tag tag-idm">Commerce</span>
+        </div>
+        <div class="card-title">Life Aboard &amp; Crewing</div>
+        <div class="card-desc">Rank and department structure, contracts and rotation, how STCW certification governs career progression, and seafarer welfare.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Chief Officer, Sign Off, Certificate of Competency, MLC 2006, Manning Agent</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-idm" href="lesson10.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 4 · Lesson 10</span>
+          <span class="strand-tag tag-idm">Commerce</span>
+        </div>
+        <div class="card-title">Maritime Commerce &amp; Chartering</div>
+        <div class="card-desc">Voyage charters vs. time charters, laytime and demurrage, how freight rates are set, and the vocabulary of a real charter party.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Time Charter, Demurrage, Worldscale, Chartering Broker, Notice of Readiness</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-ops" href="lesson11.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 5 · Lesson 11</span>
+          <span class="strand-tag tag-ops">Safety</span>
+        </div>
+        <div class="card-title">Safety Culture &amp; Incident Types</div>
+        <div class="card-desc">Groundings, collisions, fires, and pollution incidents read as multi-causal case studies through the Swiss cheese model of incident causation.</div>
+        <span class="safety-flag">⚠ Case study analysis only</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Safety Culture, Swiss Cheese Model, Near-Miss Reporting, Just Culture</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card strand-special" href="lesson12.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Day 5 · Lesson 12</span>
+          <span class="strand-tag tag-special">Capstone</span>
+        </div>
+        <div class="card-title">Capstone: Build &amp; Teach Your Own Module</div>
+        <div class="card-desc">Design a teachable module of your own — objectives, an activity, an assessment, and a safeguards statement — then see exactly how this course bridges into Maritime OT Security.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Key terms:</strong> Measurable Objectives, Mapping Activity, Toggle Simulation, Safeguards Statement</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <section class="framework-accordion" aria-labelledby="frameworks-title">
+    <button class="framework-toggle" id="frameworksToggle" aria-expanded="false" aria-controls="frameworksContent" onclick="toggleFrameworks()">
+      <span class="framework-toggle-left">
+        <span class="toggle-caret" id="frameworksCaret" aria-hidden="true">▸</span>
+        <span class="framework-toggle-title" id="frameworks-title">🗺️ Regulatory &amp; Governance Bodies — Explore the Reference Set
+          <span class="subtitle">The four reference pages used throughout Lessons 7 &amp; 8 — click to expand</span>
+        </span>
+      </span>
+      <span class="toggle-badge" id="frameworksBadge">4 Bodies · Collapsed</span>
+    </button>
+    <div class="framework-content" id="frameworksContent" aria-hidden="true" inert>
+      <div class="framework-content-inner">
+        <p class="framework-intro">These are the reference bodies and conventions covered in Lessons 7 and 8, gathered here for quick lookup: the UN body that writes global shipping rules, the three foundational safety/pollution/training conventions read together, the pairing of the two conventions covering deliberate risk (management failure and security threats), and the private technical bodies that certify a ship is soundly built. Each card opens a dedicated reference page with quick facts, a plain-language walkthrough, and further reading.</p>
+        <div class="framework-grid">
+          <a class="card strand-gov" href="imo-overview.html">
+            <div class="card-accent-bar"></div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="lesson-num">UN Agency</span>
+                <span class="strand-tag tag-gov">Body / Convention</span>
+              </div>
+              <div class="card-title">IMO Overview</div>
+              <div class="card-desc">What the International Maritime Organization actually does, how its committees work, and how conventions move from adoption to enforcement through flag states.</div>
+            </div>
+            <div class="card-footer">
+              <span class="card-terms"><strong>Key terms:</strong> MSC, MEPC, Conventions, Member States</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+          <a class="card strand-gov" href="conventions-glance.html">
+            <div class="card-accent-bar"></div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="lesson-num">Core Conventions</span>
+                <span class="strand-tag tag-gov">Body / Convention</span>
+              </div>
+              <div class="card-title">SOLAS / MARPOL / STCW at a Glance</div>
+              <div class="card-desc">A side-by-side quick reference for the three foundational conventions covering life safety, pollution prevention, and seafarer training and certification.</div>
+            </div>
+            <div class="card-footer">
+              <span class="card-terms"><strong>Key terms:</strong> SOLAS, MARPOL, STCW, Annexes</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+          <a class="card strand-gov" href="ism-isps.html">
+            <div class="card-accent-bar"></div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="lesson-num">Management &amp; Security</span>
+                <span class="strand-tag tag-gov">Body / Convention</span>
+              </div>
+              <div class="card-title">The ISM/ISPS Code Pairing</div>
+              <div class="card-desc">Why these two codes are usually taught together: one addresses management-process failure, the other addresses deliberate security threats, and both work as SOLAS amendments.</div>
+            </div>
+            <div class="card-footer">
+              <span class="card-terms"><strong>Key terms:</strong> SMS, DOC, SMC, Security Levels</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+          <a class="card strand-gov" href="classification-societies.html">
+            <div class="card-accent-bar"></div>
+            <div class="card-body">
+              <div class="card-header-row">
+                <span class="lesson-num">Technical Bodies</span>
+                <span class="strand-tag tag-gov">Body / Convention</span>
+              </div>
+              <div class="card-title">Classification Societies</div>
+              <div class="card-desc">What ABS, DNV, Lloyd's Register, and their peers actually do, what a class certificate represents, and the Recognized Organization role that connects class to flag states.</div>
+            </div>
+            <div class="card-footer">
+              <span class="card-terms"><strong>Key terms:</strong> Class Certificate, Recognized Organization, IACS, Survey</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acc-section" id="curriculum-resources-acc">
+    <h3>
+      <button class="acc-trigger" aria-expanded="true" aria-controls="curriculum-resources-panel" id="curriculum-resources-trigger">
+        <span class="acc-trigger-text"><span class="section-label" style="margin:0;">🎓 Curriculum Resources</span></span>
+        <span class="acc-chevron" aria-hidden="true">▾</span>
+      </button>
+    </h3>
+    <div class="acc-panel" id="curriculum-resources-panel" role="region" aria-labelledby="curriculum-resources-trigger">
+    <div class="acc-panel-inner">
+
+  <div class="special-grid">
+
+    <a class="card special-card strand-special" href="safeguards.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Policy</span>
+          <span class="strand-tag tag-special">Required</span>
+        </div>
+        <div class="card-title">🛡️ Safeguards &amp; Responsible Use Policy</div>
+        <div class="card-desc">The full policy: simulation-based scenarios, data handling for any real-world examples, AI-content review, accessibility commitments, and the learner acknowledgment.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Covers:</strong> Scenarios · Data · Review · Accessibility</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card special-card strand-special" href="teaching-guide.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Guide</span>
+          <span class="strand-tag tag-special">Pedagogy</span>
+        </div>
+        <div class="card-title">📖 Instructor Teaching Guide</div>
+        <div class="card-desc">Pacing for the five days, prerequisite checks (there are none — that's the point), common misconceptions newcomers bring, and discussion prompts.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Covers:</strong> Pacing · Misconceptions · Prompts · Outcomes</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card special-card strand-special" href="assessments.html">
+      <div class="card-accent-bar"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <span class="lesson-num">Bank</span>
+          <span class="strand-tag tag-special">Assessment</span>
+        </div>
+        <div class="card-title">🧪 Assessment &amp; Rubric Bank</div>
+        <div class="card-desc">Auto-graded quiz items by lesson with explanatory feedback, scenario prompts, the capstone rubric, and a reusable module-design template.</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-terms"><strong>Covers:</strong> Quiz Items · Scenarios · Rubrics · Templates</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+    </div>
+    </div>
+  </section>
+
+  <div class="next-course-banner">
+    <div>
+      <h3>Ready to go deeper? Continue into Maritime OT Security →</h3>
+      <p>This course builds the industry vocabulary and mental models that Maritime Operational Technology Security assumes on day one — the same ships, ports, and regulatory bodies, now examined through a cybersecurity lens.</p>
+    </div>
+    <a class="next-course-btn" href="https://clarkngo.github.io/maritime-ot/">Start MOT-101 →</a>
+  </div>
+
+</main>
+
+<footer>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; 12 Lessons / 5 Days &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  (function () {
+    var triggers = document.querySelectorAll('.acc-trigger');
+    triggers.forEach(function (trigger) {
+      var panelId = trigger.getAttribute('aria-controls');
+      var panel = document.getElementById(panelId);
+      var startOpen = trigger.getAttribute('aria-expanded') === 'true';
+      panel.style.maxHeight = startOpen ? (panel.scrollHeight + 40) + 'px' : '0px';
+      trigger.addEventListener('click', function () {
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        var next = !isOpen;
+        trigger.setAttribute('aria-expanded', next ? 'true' : 'false');
+        panel.style.maxHeight = next ? (panel.scrollHeight + 40) + 'px' : '0px';
+      });
+    });
+    function expandForHash() {
+      var hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+      var section = document.getElementById(hash);
+      if (!section) return;
+      var trigger = section.querySelector('.acc-trigger');
+      if (trigger && trigger.getAttribute('aria-expanded') !== 'true') { trigger.click(); }
+    }
+    window.addEventListener('hashchange', expandForHash);
+    expandForHash();
+  })();
+
+  function toggleFrameworks() {
+    var btn = document.getElementById('frameworksToggle');
+    var content = document.getElementById('frameworksContent');
+    var caret = document.getElementById('frameworksCaret');
+    var badge = document.getElementById('frameworksBadge');
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    var next = !expanded;
+    btn.setAttribute('aria-expanded', String(next));
+    content.setAttribute('aria-hidden', String(!next));
+    if (next) { content.classList.add('open'); content.removeAttribute('inert'); caret.textContent = '\u25be'; badge.textContent = '4 Bodies · Expanded'; }
+    else { content.classList.remove('open'); content.setAttribute('inert', ''); caret.textContent = '\u25b8'; badge.textContent = '4 Bodies · Collapsed'; }
+  }
+
+</script>
+</body>
+</html>

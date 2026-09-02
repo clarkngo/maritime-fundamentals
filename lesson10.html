@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Maritime Commerce &amp; Chartering | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 4, Lesson 10 of the Maritime Operations &amp; Industry Fundamentals curriculum: Lesson 2 introduced the charterer's role in one paragraph. This lesson opens up the actual commercial mechanics: how ships get hired, how freight is priced, and what happens when loading runs late.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 4 · Lesson 10 · 3 hours Contact</span>
+    <h1>Maritime Commerce &amp; Chartering</h1>
+    <p class="tagline">Lesson 2 introduced the charterer's role in one paragraph. This lesson opens up the actual commercial mechanics: how ships get hired, how freight is priced, and what happens when loading runs late.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">Voyage vs. Time Charter</a>
+    <a href="#s2" data-section="s2">Laytime &amp; Demurrage</a>
+    <a href="#s3" data-section="s3">Freight Rates</a>
+    <a href="#s4" data-section="s4">The Shipbroker's Role</a>
+    <a href="#s5" data-section="s5">Reading a Charter Party</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Lesson 2 briefly introduced the charterer as the party that hires a ship's capacity and makes the commercial decisions about cargo and routing. This lesson goes deeper into how that hiring relationship actually works: the two fundamentally different ways a ship can be chartered, how freight rates get set, what happens when loading or discharge takes longer than agreed, and the vocabulary that appears in almost every real charter party.</p>
+      <p>None of this requires a finance or legal background — the goal is to recognize these terms confidently when they come up, the same industry-literacy standard as the rest of this course.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Chartering a ship is a lot like renting a vehicle two different ways: a voyage charter is like paying a delivery service a flat fee to move a specific load from A to B — the delivery company handles the vehicle, fuel, and driver, and you pay for the outcome. A time charter is like renting the truck itself, with a driver included, for three months — you decide where it goes each day and pay for fuel yourself, but you're paying a fixed daily rate whether the truck is full or half-empty.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Distinguish a voyage charter from a time charter, including who bears which costs.</li>
+        <li>Explain laytime, demurrage, and despatch at a basic, practical level.</li>
+        <li>Describe how freight rates are set and typically quoted.</li>
+        <li>Explain the shipbroker's role in facilitating a charter negotiation.</li>
+        <li>Recognize common charter party terms including laycan, notice of readiness, and off-hire.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📝</span>
+      <h2>Voyage Charter vs. Time Charter</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>A <dfn id="def-voyage-charter">voyage charter</dfn> hires a vessel for a single voyage carrying a specific cargo between named ports: the shipowner manages the vessel and pays its running costs, including fuel (<dfn>bunkers</dfn>), and the charterer pays a freight rate based on the cargo carried — usually per tonne for bulk cargo. The owner bears the commercial risk of the ship sitting idle between voyages; the charterer bears no cost beyond that specific shipment.</p>
+    <p>A <dfn id="def-time-charter">time charter</dfn> instead hires the vessel itself for a defined period — weeks to several years — during which the charterer decides where the ship sails and what cargo it carries (within contract limits), and pays the owner a fixed <dfn id="def-hire">hire</dfn> rate (typically daily) regardless of how fully the ship is utilized. Under a time charter, the charterer pays for bunkers and port costs directly, while the shipowner remains responsible for crewing, maintenance, and the vessel's technical operation throughout the period.</p>
+    <table class="compare-table">
+      <caption>Voyage charter vs. time charter at a glance</caption>
+      <thead><tr><th scope="col">Feature</th><th scope="col">Voyage Charter</th><th scope="col">Time Charter</th></tr></thead>
+      <tbody>
+        <tr><td>Duration</td><td>Single voyage</td><td>Fixed period (weeks to years)</td></tr>
+        <tr><td>Who decides routing</td><td>Owner (within the agreed voyage)</td><td>Charterer, within contract limits</td></tr>
+        <tr><td>Who pays bunkers</td><td>Owner</td><td>Charterer</td></tr>
+        <tr><td>Payment basis</td><td>Freight per tonne of cargo carried</td><td>Fixed daily/monthly hire rate</td></tr>
+        <tr><td>Who bears idle-time risk</td><td>Owner</td><td>Charterer (still pays hire even if underutilized)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">⏳</span>
+      <h2>Laytime, Demurrage &amp; Despatch</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>A voyage charter party specifies <dfn id="def-laytime">laytime</dfn> — the amount of time allowed for loading and discharging cargo before additional charges apply. If loading or discharge takes longer than the allowed laytime, the charterer owes the owner <dfn id="def-demurrage">demurrage</dfn>, a pre-agreed daily rate compensating the owner for the ship's extra time at berth instead of earning freight elsewhere. If cargo operations finish faster than the allowed laytime, some charter parties pay the charterer <dfn id="def-despatch">despatch</dfn> — a bonus, usually around half the demurrage rate, rewarding efficient port turnaround.</p>
+    <p>This creates a real, ongoing financial incentive on both sides: charterers want cargo operations to move quickly to avoid demurrage (and possibly earn despatch), while the mechanism protects owners from being stuck at berth indefinitely on the charterer's schedule, unpaid, waiting for slow-moving cargo operations.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A charter party allows 4 laydays (96 hours) for loading a bulk cargo, at a demurrage rate of $15,000 per day and despatch at half that rate. If loading actually takes 5 days, the charterer owes one day's demurrage: $15,000. If loading instead finishes in 3 days, the charterer earns half a day's despatch on the remaining time saved. Either way, the laytime clause converts a scheduling outcome directly into a specific financial adjustment, with no ambiguity about who owes what.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📈</span>
+      <h2>How Freight Rates Are Set</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Freight rates move with the balance of available ship capacity against cargo demand, recalling the Baltic Dry Index introduced in Lesson 2 as a widely watched benchmark for bulk shipping rates. Rates can be fixed in the <dfn id="def-spot-market">spot market</dfn> (a single voyage, priced at the current market rate) or the <dfn id="def-period-market">period market</dfn> (a time charter locking in a rate for months or years, trading some upside for predictability).</p>
+    <p>Different trades quote freight differently: dry bulk cargo is typically priced per tonne, tanker freight is often quoted against the <dfn id="def-worldscale">Worldscale</dfn> index (a standardized scale expressing a rate as a percentage of a published flat reference rate for that specific route), and heavy-lift or project cargo is frequently priced as a single <dfn>lump sum</dfn> for the whole shipment rather than per tonne, given how irregular that cargo's shape and handling requirements can be.</p>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🤝</span>
+      <h2>The Shipbroker's Role, Revisited</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Lesson 2 introduced the shipbroker briefly as the intermediary matching cargo with ship capacity. In chartering specifically, a <dfn id="def-chartering-broker">chartering broker</dfn> represents either the shipowner or the charterer (sometimes both, with appropriate disclosure) in negotiating the terms of a fixture — freight or hire rate, laycan, laytime, and the many other clauses a charter party contains — earning a commission, typically a small percentage of the total freight or hire value, once the deal is concluded.</p>
+    <p>A separate specialty, the <dfn id="def-sp-broker">sale and purchase (S&amp;P) broker</dfn>, handles an entirely different transaction: the buying and selling of vessels themselves rather than their cargo capacity. Both roles exist for the same underlying reason introduced back in Lesson 2 — matching supply and demand in a global, fragmented market is a specialized skill that most shipowners and charterers would rather outsource than build in-house.</p>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📄</span>
+      <h2>Reading a Charter Party: Key Terms</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>A handful of terms appear in nearly every charter party and are worth recognizing on sight. <dfn id="def-laycan">Laycan</dfn> (laydays/cancelling) is the date range within which the vessel must present itself ready to load — arrive too late, and the charterer typically has the right to cancel the fixture entirely. A <dfn id="def-nor">Notice of Readiness (NOR)</dfn> is the formal notice a ship's master tenders on arrival confirming the vessel is ready in all respects to load or discharge, which is what actually starts the laytime clock running.</p>
+    <p>For time charters specifically, <dfn id="def-off-hire">off-hire</dfn> describes periods when the charterer does not have to pay hire — typically because the vessel is unavailable for the charterer's use due to breakdown, dry-docking, or another owner-side issue — and <dfn>redelivery</dfn> is the formal handover of the vessel back to the owner's control at the end of the charter period, closing out the arrangement described in Section 1.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>These terms reward pattern recognition more than memorization. If time allows, show a single real (or realistic sample) charter party clause and have learners identify which of this lesson's terms it corresponds to — seeing the actual contract language demystifies it quickly.</p></div>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Term to Its Definition</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each term below, select its correct definition. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Term</th><th scope="col">Definition</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="voyage">
+                <td>A charter hiring a vessel for one voyage, with the owner paying bunkers</td>
+                <td>
+                  <select aria-label="term for hiring a vessel for one voyage">
+                    <option value="">— Select —</option>
+                    <option value="voyage">Voyage charter</option>
+                    <option value="time">Time charter</option>
+                    <option value="demurrage">Demurrage</option>
+                    <option value="despatch">Despatch</option>
+                    <option value="laycan">Laycan</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="time">
+                <td>A charter hiring a vessel for a fixed period, with the charterer paying bunkers</td>
+                <td>
+                  <select aria-label="term for hiring a vessel for a fixed period">
+                    <option value="">— Select —</option>
+                    <option value="voyage">Voyage charter</option>
+                    <option value="time">Time charter</option>
+                    <option value="demurrage">Demurrage</option>
+                    <option value="despatch">Despatch</option>
+                    <option value="laycan">Laycan</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="demurrage">
+                <td>Compensation owed to the owner when loading/discharge exceeds allowed laytime</td>
+                <td>
+                  <select aria-label="term for compensation when laytime is exceeded">
+                    <option value="">— Select —</option>
+                    <option value="voyage">Voyage charter</option>
+                    <option value="time">Time charter</option>
+                    <option value="demurrage">Demurrage</option>
+                    <option value="despatch">Despatch</option>
+                    <option value="laycan">Laycan</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="despatch">
+                <td>A bonus paid to the charterer when loading/discharge finishes early</td>
+                <td>
+                  <select aria-label="term for a bonus for finishing loading early">
+                    <option value="">— Select —</option>
+                    <option value="voyage">Voyage charter</option>
+                    <option value="time">Time charter</option>
+                    <option value="demurrage">Demurrage</option>
+                    <option value="despatch">Despatch</option>
+                    <option value="laycan">Laycan</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="laycan">
+                <td>The date range within which a vessel must present itself ready to load</td>
+                <td>
+                  <select aria-label="term for the date range for presenting a vessel ready to load">
+                    <option value="">— Select —</option>
+                    <option value="voyage">Voyage charter</option>
+                    <option value="time">Time charter</option>
+                    <option value="demurrage">Demurrage</option>
+                    <option value="despatch">Despatch</option>
+                    <option value="laycan">Laycan</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: What Erodes a Charterer's Schedule</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A charterer's plan looks clean on paper: fixed laycan, fixed laytime, fixed freight. Toggle each real-world factor below to see how commercial certainty erodes in practice.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Commercial risk factors">
+          <button type="button" class="sim-toggle" data-conn="volatility" aria-pressed="false">Freight-rate volatility spikes</button>
+          <button type="button" class="sim-toggle" data-conn="congestion" aria-pressed="false">Load port hits congestion</button>
+          <button type="button" class="sim-toggle" data-conn="weather" aria-pressed="false">Weather delays the passage</button>
+          <button type="button" class="sim-toggle" data-conn="dispute" aria-pressed="false">A laytime dispute arises</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Charterer's Schedule Certainty</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> on paper, a fixed charter party with a clear laycan and laytime looks entirely predictable. Add real-world factors below to see how that predictability erodes.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="b" data-fb-correct="Under a time charter, the charterer pays bunkers and port costs directly, while the owner handles crewing and maintenance." data-fb-incorrect="Bunkers under a time charter are the charterer's cost \u2014 the owner pays bunkers under a voyage charter instead.">
+        <div class="q-stem"><span class="q-num">Q1.</span>Under a time charter, who typically pays for bunkers (fuel)?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> The shipowner, always</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> The charterer</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> The port authority</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> The classification society</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Demurrage compensates the owner for the vessel's extra time at berth beyond the agreed laytime, when it could otherwise be earning freight elsewhere." data-fb-incorrect="Demurrage is specifically about exceeding laytime at berth \u2014 not cargo damage, pilotage, or fuel cost.">
+        <div class="q-stem"><span class="q-num">Q2.</span>What does demurrage compensate the shipowner for?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> Damage to the cargo during the voyage</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> The cost of hiring a pilot</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> Loading or discharge taking longer than the laytime allowed in the charter party</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> Fuel used during the voyage</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="Worldscale expresses tanker freight as a percentage of a standardized flat reference rate for that specific route, letting different-sized fixtures be compared consistently." data-fb-incorrect="Worldscale isn't an oil price, a classification rating, or a laytime measure \u2014 it's a standardized way of expressing tanker freight relative to a reference rate.">
+        <div class="q-stem"><span class="q-num">Q3.</span>What does the Worldscale index express for tanker freight?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> A rate as a percentage of a published flat reference rate for a specific route</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> The exact price of crude oil on a given day</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> A vessel's classification society rating</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> The number of days allowed for laytime</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="Chartering brokers deal in capacity (fixtures); S&P brokers deal in vessel ownership transactions \u2014 distinct specialties within shipbroking." data-fb-incorrect="Neither role is limited to tankers or time charters specifically \u2014 the real distinction is capacity-hire fixtures versus vessel sale/purchase transactions.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What is the main difference between a chartering broker and a sale and purchase (S&P) broker?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> There is no real difference between the two roles</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Chartering brokers only work with tankers</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> S&P brokers only work with time charters</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Chartering brokers negotiate the hire of a vessel's capacity; S&P brokers negotiate the buying and selling of vessels themselves</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="b" data-fb-correct="Tendering the NOR is what starts laytime running \u2014 a key trigger event referenced throughout charter party disputes." data-fb-incorrect="NOR doesn't cancel the charter, bypass PSC, or transfer command \u2014 its specific function is starting the laytime clock.">
+        <div class="q-stem"><span class="q-num">Q5.</span>What does a Notice of Readiness (NOR) actually do?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> It cancels the charter party automatically</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> It formally confirms the vessel is ready to load or discharge, starting the laytime clock</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> It authorizes the ship to bypass port state control</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> It transfers legal command from the master to the pilot</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner write two or three sentences explaining, in their own words, why a shipowner might prefer a time charter over repeated voyage charters during a period of volatile freight rates \u2014 tying together the risk-allocation and rate-predictability concepts from this lesson.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.bimco.org/contracts-and-clauses" target="_blank" rel="noopener noreferrer">BIMCO — Standard Charter Party Contracts &amp; Clauses</a> — the industry's most widely used source of standard charter party forms and clause language.</li>
+      <li><a href="https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport" target="_blank" rel="noopener noreferrer">UNCTAD — Review of Maritime Transport</a> — context on freight-rate cycles and market conditions referenced throughout this lesson.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson09.html">← Lesson 9: Life Aboard &amp; Crewing</a>
+    <a class="nav-btn" href="lesson11.html">Lesson 11: Safety Culture &amp; Incident Types →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">Voyage vs. Time Charter</a></li>
+      <li><a href="#s2">Laytime &amp; Demurrage</a></li>
+      <li><a href="#s3">Freight Rates</a></li>
+      <li><a href="#s4">The Shipbroker's Role</a></li>
+      <li><a href="#s5">Reading a Charter Party</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Distinguish a voyage charter from a time charter, including who bears which costs.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Explain laytime, demurrage, and despatch at a basic, practical level.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Describe how freight rates are set and typically quoted.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Explain the shipbroker's role in facilitating a charter negotiation.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Recognize common charter party terms including laycan, notice of readiness, and off-hire.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Time Charter</span></a><span class="glossary-def">A charter hiring a vessel for a fixed period, with the charterer directing routing and paying bunkers.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Demurrage</span></a><span class="glossary-def">Compensation owed to the owner when loading or discharge exceeds the charter party's allowed laytime.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Worldscale</span></a><span class="glossary-def">A standardized index expressing tanker freight as a percentage of a published flat reference rate.</span></li>
+      <li><a href="#s4"><span class="glossary-term">Chartering Broker</span></a><span class="glossary-def">An intermediary negotiating the terms of a vessel-hire fixture between owner and charterer.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Notice of Readiness (NOR)</span></a><span class="glossary-def">A formal notice confirming a vessel is ready to load or discharge, starting the laytime clock.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson09.html">← Previous: Lesson 9: Life Aboard &amp; Crewing</a>
+      <a href="lesson11.html">Next: Lesson 11: Safety Culture &amp; Incident Types →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 10 · Day 4 · Maritime Commerce &amp; Chartering<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { volatility: false, congestion: false, weather: false, dispute: false };
+  var simMessages = {
+    volatility: "Freight-rate volatility added: if this is a spot-market fixture, the next voyage's rate may look very different from this one, complicating forward planning.",
+    congestion: "Load-port congestion added: the vessel may miss its laycan window entirely, risking cancellation rights or a costly renegotiation.",
+    weather: "Weather delay added: a slower passage can push the vessel's arrival at the discharge port past planned onward connections for the cargo.",
+    dispute: "Laytime dispute added: disagreement over when the laytime clock actually started (often tied to the Notice of Readiness) can leave demurrage or despatch unresolved for weeks after the voyage ends."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> on paper, a fixed charter party with a clear laycan and laytime looks entirely predictable. Add real-world factors below to see how that predictability erodes.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four factors are now in play. None of them individually breaks the charter party \u2014 laycan cancellation rights, demurrage clauses, and dispute-resolution provisions exist precisely to handle each of these \u2014 but together they explain why chartering desks and shipbrokers stay actively engaged throughout a voyage, not just at the moment a fixture is signed.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>

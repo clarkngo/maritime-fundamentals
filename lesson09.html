@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Life Aboard &amp; Crewing | Maritime Operations &amp; Industry Fundamentals</title>
+<meta name="description" content="Day 4, Lesson 9 of the Maritime Operations &amp; Industry Fundamentals curriculum: Behind every voyage is a crew working fixed-term contracts, far from home, organized into departments and ranks that took shape over more than a century of seafaring practice.">
+<style>
+  :root {
+    --bg: #f2f6f8;
+    --surface: #ffffff;
+    --surface2: #eaf3f6;
+    --border: #ccdce4;
+    --text: #0d1b26;
+    --text-muted: #52697a;
+    --accent: #0e7490;
+    --accent2: #155e75;
+    --accent-light: #e0f2f4;
+    --on-accent: #ffffff;
+    --badge-bg: #0a1a2b;
+    --badge-text: #ffffff;
+    --card-hover: #e8f2f4;
+    --shadow: 0 2px 8px rgba(9,30,43,0.10);
+    --shadow-hover: 0 8px 24px rgba(9,30,43,0.16);
+    --header-bg: #0a1a2b;
+    --header-text: #ffffff;
+    --ok: #276221;
+    --ok-bg: #e8f5e9;
+    --bad: #c0392b;
+    --bad-bg: #fdecea;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tag-found: #b45309;
+    --tag-proto: #1565c0;
+    --tag-gov: #6a1b9a;
+    --tag-idm: #00796b;
+    --tag-ops: #2e7d32;
+    --tag-safety: #b45309;
+    --tag-found-bg: #fff3e0;
+    --tag-proto-bg: #e3f0fd;
+    --tag-gov-bg: #f3e5f5;
+    --tag-idm-bg: #e0f2f1;
+    --tag-ops-bg: #e8f5e9;
+    --tag-safety-bg: #fdf3e3;
+}
+  [data-theme="dark"] {
+    --bg: #08121c;
+    --surface: #101d2e;
+    --surface2: #16283d;
+    --border: #223349;
+    --text: #e6eef5;
+    --text-muted: #8fa3b8;
+    --accent: #22d3ee;
+    --accent2: #67e8f9;
+    --accent-light: #082b33;
+    --on-accent: #04222a;
+    --badge-bg: #22d3ee;
+    --badge-text: #04222a;
+    --card-hover: #16283d;
+    --shadow: 0 2px 8px rgba(0,0,0,0.40);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.55);
+    --header-bg: #050d16;
+    --header-text: #e6eef5;
+    --ok: #a5d6a7;
+    --ok-bg: #0d2010;
+    --bad: #ef9a9a;
+    --bad-bg: #2a1010;
+    --tag-found: #ffcc80;
+    --tag-proto: #90caf9;
+    --tag-gov: #ce93d8;
+    --tag-idm: #80cbc4;
+    --tag-ops: #a5d6a7;
+    --tag-safety: #fbbf24;
+    --tag-found-bg: #2a1a00;
+    --tag-proto-bg: #0d1f35;
+    --tag-gov-bg: #1f0d2a;
+    --tag-idm-bg: #0d2520;
+    --tag-ops-bg: #0d2010;
+    --tag-safety-bg: #2a1c05;
+}
+
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; }
+  p { margin: 0 0 1em; }
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 300;
+    background: var(--accent); color: var(--on-accent);
+    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700;
+    text-decoration: none;
+  }
+  .skip-link:focus { left: 0; }
+
+  .topbar { background: var(--surface); border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 9px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .back-link { color: var(--text-muted); text-decoration: none; font-weight: 600; }
+  .back-link:hover { color: var(--accent); }
+  .topbar-inst { color: var(--text-muted); text-align: right; }
+
+  .lesson-header { background: var(--header-bg); color: var(--header-text); padding: 28px 24px 22px; }
+  .header-inner { max-width: 1280px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent2);
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+    display: inline-block; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px;
+  }
+  [data-theme="dark"] .eyebrow { color: var(--accent); }
+  .lesson-header h1 { font-size: 1.9rem; font-weight: 800; margin: 0 0 8px; max-width: 46rem; }
+  .tagline { font-size: 1.02rem; opacity: 0.82; margin: 0 0 18px; max-width: 44rem; }
+  .meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+  .meta-item { display: flex; align-items: center; gap: 6px; }
+  .header-actions { display: flex; gap: 10px; margin-left: auto; }
+  .btn-header {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--header-text);
+    cursor: pointer; padding: 8px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-header:hover { background: rgba(255,255,255,0.22); }
+
+  .section-nav { position: sticky; top: 0; z-index: 90; background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); overflow-x: auto; white-space: nowrap; }
+  .section-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; }
+  .section-nav a { display: inline-block; padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--text-muted); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); }
+  .section-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .layout { max-width: 1280px; margin: 0 auto; padding: 30px 24px 60px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+  main { min-width: 0; }
+  .sidebar { position: sticky; top: 60px; display: flex; flex-direction: column; gap: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+  .card h2, .card h3 { margin-top: 0; }
+  .sidebar-title { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin: 0 0 12px; }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; }
+  .toc-list a { color: var(--text); text-decoration: none; display: block; padding: 4px 0; }
+  .toc-list a:hover { color: var(--accent); }
+
+  .progress-bar-track { height: 8px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+  .progress-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+  .lo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .lo-item { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; }
+  .lo-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--accent); cursor: pointer; }
+  .lo-item label { cursor: pointer; }
+  .lo-item.done label { color: var(--text-muted); text-decoration: line-through; }
+
+  .glossary-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 0.83rem; }
+  .glossary-term { font-weight: 700; color: var(--accent); }
+  .glossary-list a { text-decoration: none; }
+  .glossary-def { color: var(--text-muted); display: block; margin-top: 2px; }
+
+  .prevnext-links { display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .prevnext-links a { text-decoration: none; color: var(--text); font-weight: 600; }
+  .prevnext-links a:hover { color: var(--accent); }
+  .prevnext-links .disabled { color: var(--text-muted); font-weight: 400; }
+
+  .part-banner { background: var(--header-bg); color: var(--header-text); padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 40px 0 18px; }
+  section.module { margin-bottom: 40px; scroll-margin-top: 80px; }
+  section.module:first-of-type { margin-top: 0; }
+  .module-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .module-icon { font-size: 1.3rem; }
+  .module-head h2 { font-size: 1.4rem; margin: 0; }
+  .module-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+
+  .overview-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  .lo-display { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .lo-display li { padding-left: 26px; position: relative; font-size: 0.95rem; }
+  .lo-display li::before { content: "\25b8"; color: var(--accent); position: absolute; left: 0; font-weight: 700; }
+
+  .analogy-box { background: var(--accent-light); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .analogy-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); display: block; margin-bottom: 6px; }
+  [data-theme="dark"] .analogy-label { color: var(--accent); }
+  .analogy-box p:last-child { margin-bottom: 0; }
+
+  .worked-example { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; margin: 18px 0; }
+  .worked-example-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); display: block; margin-bottom: 6px; }
+  .worked-example p:last-child { margin-bottom: 0; }
+
+  .safety-flag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; color: var(--tag-safety); background: var(--tag-safety-bg); border: 1px solid var(--tag-safety); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.02em; margin-bottom: 14px; }
+
+  dfn { font-style: normal; font-weight: 700; color: var(--text); border-bottom: 1px dotted var(--accent); }
+
+  table.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+  table.compare-table caption { text-align: left; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  table.compare-table th, table.compare-table td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  table.compare-table thead th { background: var(--header-bg); color: var(--header-text); font-weight: 700; }
+  table.compare-table tbody tr:hover { background: var(--card-hover); }
+
+  .timeline-wrap { overflow-x: auto; margin: 18px 0; padding-bottom: 6px; }
+  .timeline { display: flex; gap: 0; min-width: 760px; }
+  .timeline-node { flex: 1; text-align: center; position: relative; padding: 0 6px; }
+  .timeline-node .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); margin: 0 auto 8px; border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-node::before { content: ""; position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+  .timeline-node:first-child::before { left: 50%; }
+  .timeline-node:last-child::before { right: 50%; }
+  .timeline-node .dot { position: relative; z-index: 1; }
+  .timeline-year { font-size: 0.78rem; font-weight: 800; color: var(--accent2); }
+  [data-theme="dark"] .timeline-year { color: var(--accent); }
+  .timeline-label { font-size: 0.82rem; font-weight: 600; margin-top: 2px; }
+  .timeline-desc { font-size: 0.76rem; color: var(--text-muted); margin-top: 4px; }
+  @media (max-width: 700px) { .timeline { flex-direction: column; gap: 20px; min-width: 0; } .timeline-node::before { display: none; } }
+
+  .activity-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin: 18px 0; }
+  .activity-head { background: var(--surface2); padding: 14px 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+  .activity-head h3 { margin: 0; font-size: 1.05rem; }
+  .activity-time { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; margin-left: auto; }
+  .activity-structure { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent2); background: var(--accent-light); padding: 3px 9px; border-radius: 12px; }
+  [data-theme="dark"] .activity-structure { color: var(--accent); }
+  .activity-body { padding: 20px; }
+  .activity-instructions { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .mapping-table-wrap { overflow-x: auto; }
+  table.mapping-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  table.mapping-table th, table.mapping-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+  table.mapping-table thead th { background: var(--surface2); font-weight: 700; }
+  table.mapping-table select { width: 100%; padding: 7px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: inherit; font-size: 0.86rem; }
+  .map-row.correct td:first-child { border-left: 4px solid var(--ok); }
+  .map-row.incorrect td:first-child { border-left: 4px solid var(--bad); }
+  .mapping-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .mapping-result { font-size: 0.85rem; font-weight: 700; }
+
+  .btn { background: var(--accent); color: var(--on-accent); border: none; cursor: pointer; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.87rem; font-family: inherit; }
+  .btn:hover { background: var(--accent2); }
+  .btn.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn.secondary:hover { background: var(--accent-light); }
+
+  .sim-controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sim-toggle { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 9px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .sim-toggle[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .sim-meter-wrap { margin-bottom: 18px; }
+  .sim-meter-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+  .sim-meter-track { height: 14px; background: var(--surface2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .sim-meter-fill { height: 100%; background: var(--ok); transition: width 0.4s ease, background 0.4s ease; }
+  .sim-readout { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; font-size: 0.87rem; min-height: 3.5em; }
+  .sim-readout strong { color: var(--accent2); }
+  [data-theme="dark"] .sim-readout strong { color: var(--accent); }
+
+  .quiz-block { display: flex; flex-direction: column; gap: 20px; }
+  .q-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 18px; }
+  .q-stem { font-weight: 700; margin-bottom: 10px; font-size: 0.92rem; }
+  .q-num { color: var(--accent); margin-right: 6px; }
+  .q-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .q-opt { display: flex; align-items: flex-start; gap: 8px; font-size: 0.87rem; }
+  .q-opt input { margin-top: 3px; accent-color: var(--accent); }
+  .q-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; display: none; }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: var(--ok-bg); color: var(--ok); }
+  .q-feedback.incorrect { background: var(--bad-bg); color: var(--bad); }
+  .q-feedback.unanswered { background: var(--tag-safety-bg); color: var(--tag-safety); }
+  .quiz-score { margin-top: 6px; background: var(--header-bg); color: var(--header-text); border-radius: var(--radius-sm); padding: 16px 20px; font-weight: 700; display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .quiz-score.show { display: flex; }
+  .quiz-score-big { font-size: 1.4rem; }
+
+  .resource-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .resource-list li { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.88rem; }
+  .resource-list a { font-weight: 700; text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+
+  .teach-note { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 12px 16px; margin: 16px 0; font-size: 0.85rem; color: var(--text-muted); }
+  .teach-label { font-weight: 800; color: var(--accent2); display: block; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  [data-theme="dark"] .teach-label { color: var(--accent); }
+
+  .icon-row { display: flex; gap: 18px; margin: 14px 0; flex-wrap: wrap; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); width: 84px; text-align: center; }
+
+  .lesson-nav-bottom { display: flex; justify-content: space-between; gap: 16px; margin-top: 46px; flex-wrap: wrap; }
+  .nav-btn { text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 18px; font-weight: 700; color: var(--text); box-shadow: var(--shadow); font-size: 0.88rem; }
+  .nav-btn:hover { box-shadow: var(--shadow-hover); color: var(--accent); }
+  .nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+  footer { background: var(--header-bg); color: var(--header-text); opacity: 0.85; text-align: center; padding: 22px 24px; font-size: 0.8rem; line-height: 1.6; }
+  footer a { color: var(--accent2); }
+  [data-theme="dark"] footer a { color: var(--accent); }
+
+  @media print {
+    .topbar, .section-nav, .sidebar, .header-actions, .lesson-nav-bottom, .skip-link { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    body { background: #ffffff; color: #000000; }
+    .lesson-header { background: #ffffff; color: #000000; padding: 10px 0; }
+    .eyebrow, .tagline { color: #333333; }
+    .card, .overview-box, .activity-block, .analogy-box, .worked-example, .q-card, .sim-readout { box-shadow: none; border: 1px solid #999; }
+    footer { background: #ffffff; color: #000000; }
+  }
+  @media (max-width: 520px) { .header-inner { padding: 14px 16px; } }
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="back-link">← Course Home</a>
+    <span class="topbar-inst">Maritime Operations &amp; Industry Fundamentals · Clark Ngo</span>
+  </div>
+</div>
+
+<header class="lesson-header">
+  <div class="header-inner">
+    <span class="eyebrow">MOF-101 · Day 4 · Lesson 9 · 3 hours Contact</span>
+    <h1>Life Aboard &amp; Crewing</h1>
+    <p class="tagline">Behind every voyage is a crew working fixed-term contracts, far from home, organized into departments and ranks that took shape over more than a century of seafaring practice.</p>
+    <div class="meta-row">
+      <span class="meta-item">📊 Beginner</span>
+      <span class="meta-item">⏱ 3 hours</span>
+      <span class="meta-item">🎯 5 objectives</span>
+      <div class="header-actions">
+        <button class="btn-header" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-header" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Lesson sections">
+  <div class="section-nav-inner" id="sectionNav">
+    <a href="#overview" data-section="overview">Overview</a>
+    <a href="#s1" data-section="s1">Departments &amp; Ranks</a>
+    <a href="#s2" data-section="s2">Contracts &amp; Rotation</a>
+    <a href="#s3" data-section="s3">STCW &amp; Career Progression</a>
+    <a href="#s4" data-section="s4">Welfare Aboard</a>
+    <a href="#s5" data-section="s5">Recruitment</a>
+    <a href="#activity" data-section="activity">Activity</a>
+    <a href="#simulation" data-section="simulation">Simulation</a>
+    <a href="#review" data-section="review">Review</a>
+  </div>
+</nav>
+
+<div class="layout">
+<main id="main">
+
+  <section id="overview" class="module">
+    <div class="overview-box">
+      <h2>Lesson Overview</h2>
+      <p>Every lesson so far has treated the ship as a system — cargo, navigation, construction, regulation. This lesson is about the people running that system: how a crew is organized into departments and ranks, how seafarer employment actually works (fixed-term contracts and rotations, not permanent local jobs), how STCW certification from Lesson 8 determines who can hold which role, and what daily life and welfare look like for people who spend months at a time away from home.</p>
+      <p>This is a foundational lesson for anyone considering maritime work themselves, and useful context for anyone working alongside seafarers from a shore-based role.</p>
+      <div class="analogy-box"><span class="analogy-label">Anchoring analogy</span>
+      <p>Think of a ship's crew less like a typical office staff and more like a touring theater company: a defined cast of roles that repeats from production to production (ship to ship), fixed-term contracts rather than permanent local employment, and long stretches away from home followed by a real break before the next engagement begins.</p></div>
+      <h3 style="margin-top:22px;font-size:1.05rem;">Learning objectives</h3>
+      <p style="margin-bottom:6px;color:var(--text-muted);font-size:0.85rem;">By the end of this lesson, you will be able to:</p>
+      <ul class="lo-display">
+        <li>Describe the basic department and rank structure aboard a merchant vessel.</li>
+        <li>Explain how seafarer contracts and rotation periods typically work.</li>
+        <li>Explain how STCW certification determines which ranks and roles a seafarer can hold.</li>
+        <li>Describe common welfare challenges aboard and the standards that address them.</li>
+        <li>Explain the basic role crew manning agents play in seafarer recruitment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s1" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🦯</span>
+      <h2>Departments &amp; Ranks Aboard</h2>
+      <span class="module-time">≈ 35 min</span>
+    </div>
+    <p>A merchant vessel's crew is organized into departments, each with its own rank ladder. The <dfn id="def-deck-dept">deck department</dfn>, responsible for navigation, cargo, and general ship operations, is led by the master, followed by the chief officer (second-in-command, responsible for cargo and deck operations), second and third officers (the watchkeeping officers from Lesson 4), and ratings — able seamen (AB) and ordinary seamen (OS) — who carry out maintenance, mooring, and lookout duties, often working toward officer certification themselves.</p>
+    <p>The <dfn id="def-engine-dept">engine department</dfn> runs in parallel, led by the chief engineer, followed by second, third, and fourth engineers, and engine ratings (motormen, oilers, wipers) who maintain and operate the propulsion and auxiliary systems from Lesson 6. A smaller <dfn id="def-catering-dept">catering department</dfn> — a chief cook and steward(s) — supports both departments by keeping the crew fed and the accommodation maintained, a role easy to overlook but essential to morale on a long voyage.</p>
+    <table class="compare-table">
+      <caption>A simplified rank structure by department</caption>
+      <thead><tr><th scope="col">Department</th><th scope="col">Senior Rank</th><th scope="col">Mid Ranks</th><th scope="col">Ratings</th></tr></thead>
+      <tbody>
+        <tr><td>Deck</td><td>Master</td><td>Chief, 2nd, 3rd Officer</td><td>Bosun, AB, OS</td></tr>
+        <tr><td>Engine</td><td>Chief Engineer</td><td>2nd, 3rd, 4th Engineer</td><td>Motorman, Oiler, Wiper</td></tr>
+        <tr><td>Catering</td><td>Chief Cook</td><td>—</td><td>Steward</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="s2" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📅</span>
+      <h2>Contracts &amp; Rotation</h2>
+      <span class="module-time">≈ 25 min</span>
+    </div>
+    <p>Seafarers are rarely permanent employees tied to one specific vessel indefinitely; most work under <dfn id="def-fixed-contract">fixed-term contracts</dfn> — commonly ranging from about four to nine months, depending on rank, nationality, and company policy — after which they <dfn id="def-sign-off">sign off</dfn> at a port, fly home, and take leave before their next contract begins, often (but not always) aboard a different vessel entirely.</p>
+    <p>This rotation model means <dfn id="def-crew-change">crew changes</dfn> — the logistics of flying relief crew to a specific port to swap with the outgoing crew — are a routine but genuinely complex operational task, coordinated around a ship's actual itinerary, visa requirements, and flight availability. Global disruptions can strand crew well past their contracted sign-off date when relief crew simply cannot reach the ship, a real welfare concern the industry has had to confront directly in recent years.</p>
+    <div class="worked-example"><span class="worked-example-label">Worked example</span>
+      <p>A third officer signs a six-month contract and joins a container ship in Singapore. The ship's itinerary takes it through Asia, across the Pacific, and along the U.S. West Coast before returning to Asia five months later — at which point the company arranges for a relief third officer to fly to the ship's next port of call, allowing the original officer to sign off, fly home, and begin several weeks of leave before their next contract.</p></div>
+  </section>
+
+  <section id="s3" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🎓</span>
+      <h2>STCW Certification &amp; Career Progression</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>The STCW convention from Lesson 8 is what actually determines which rank a seafarer is legally qualified to hold: a <dfn id="def-coc">Certificate of Competency</dfn> is tied to a specific rank, vessel tonnage or engine power range, and often a specific trading area, and must be renewed periodically through refresher training. A cadet typically begins with basic safety training, accumulates supervised sea time aboard ship, sits written and practical exams, and progresses rank by rank — third officer to chief officer to master, or third engineer to chief engineer — with additional sea time and higher-level certification required at each step.</p>
+    <p>This structured progression is precisely why STCW certification is described as portable and internationally recognized: an officer holding a valid Certificate of Competency can generally seek employment with any company operating vessels within that certificate's scope, regardless of which flag state originally issued it, because STCW's minimum standards are internationally agreed rather than nationally specific.</p>
+  </section>
+
+  <div class="part-banner">Part B · Applied Practice</div>
+
+  <section id="s4" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">❤️</span>
+      <h2>Welfare Aboard</h2>
+      <span class="module-time">≈ 30 min</span>
+    </div>
+    <p>Months away from family, limited personal space, and historically poor connectivity have made seafarer welfare a longstanding industry concern. The <dfn id="def-mlc">Maritime Labour Convention (MLC), 2006</dfn> — sometimes called the "seafarers' bill of rights" — sets minimum international standards for living and working conditions aboard, covering accommodation standards, food quality, medical care access, hours of rest, and repatriation rights, and is enforced through inspection much like the conventions from Lesson 8.</p>
+    <p>Connectivity has improved substantially as satellite broadband has become more common aboard — the same VSAT technology mentioned in earlier lessons — letting crew call and message family far more easily than a generation ago, though bandwidth and cost still vary widely by vessel and company. Seafarer welfare organizations, port chaplaincies, and dedicated seafarer centers in major ports provide additional support, and mental health awareness — addressing the real psychological toll of isolation and long rotations — has become a growing industry focus in recent years.</p>
+    <div class="teach-note"><span class="teach-label">Teaching note</span>
+      <p>If a learner in the room has direct seafaring experience or a family connection to it, this is a natural moment to invite a brief firsthand perspective \u2014 lived experience often lands more powerfully here than any statistic.</p></div>
+  </section>
+
+  <section id="s5" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">📄</span>
+      <h2>Recruitment &amp; Crew Manning Agents</h2>
+      <span class="module-time">≈ 20 min</span>
+    </div>
+    <p>Most seafarers are recruited and placed through <dfn id="def-manning-agent">crew manning agents</dfn> — specialized agencies that act as an intermediary between individual seafarers and the shipowners or ship managers who need crew, handling recruitment, contract paperwork, and often pre-departure training and medical checks. This is another instance of the specialization pattern from Lessons 2 and 3: the shipowner or manager rarely recruits crew directly, instead relying on an agency with deep local hiring networks and knowledge of a given nationality's certification and visa requirements.</p>
+    <p>Global crewing has well-established national patterns: the Philippines and India, among others, are major sources of seafarers worldwide, with strong pipelines of maritime academies, manning agencies, and diaspora networks built up over decades. This concentration is itself an outcome of the industry's global, mobile labor market — a seafarer's nationality and their vessel's flag state are almost always different countries entirely, another everyday instance of this course's recurring theme: the party you'd assume is "in charge" of any single piece of a voyage is very often a distinct specialist company or workforce instead.</p>
+  </section>
+
+  <section id="activity" class="module">
+    <div class="activity-block">
+      <div class="activity-head">
+        <span aria-hidden="true">🧩</span>
+        <h3>Activity: Match the Rank to Its Department</h3>
+        <span class="activity-structure">Individual, then pair-share</span>
+        <span class="activity-time">≈ 20 min</span>
+      </div>
+      <div class="activity-body">
+        <p class="activity-instructions"><strong>Individual (10 min):</strong> For each rank below, select the department it belongs to. <strong>Pair-share (10 min):</strong> Compare and resolve disagreements before checking.</p>
+        <div class="mapping-table-wrap">
+          <table class="mapping-table" id="mappingTable">
+            <thead>
+              <tr><th scope="col">Rank</th><th scope="col">Department</th></tr>
+            </thead>
+            <tbody>
+              <tr class="map-row" data-answer="deck">
+                <td>Chief Officer</td>
+                <td>
+                  <select aria-label="department for chief officer">
+                    <option value="">— Select —</option>
+                    <option value="deck">Deck department</option>
+                    <option value="engine">Engine department</option>
+                    <option value="catering">Catering department</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="engine">
+                <td>Second Engineer</td>
+                <td>
+                  <select aria-label="department for second engineer">
+                    <option value="">— Select —</option>
+                    <option value="deck">Deck department</option>
+                    <option value="engine">Engine department</option>
+                    <option value="catering">Catering department</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="catering">
+                <td>Chief Cook</td>
+                <td>
+                  <select aria-label="department for chief cook">
+                    <option value="">— Select —</option>
+                    <option value="deck">Deck department</option>
+                    <option value="engine">Engine department</option>
+                    <option value="catering">Catering department</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="deck">
+                <td>Able Seaman (AB)</td>
+                <td>
+                  <select aria-label="department for able seaman">
+                    <option value="">— Select —</option>
+                    <option value="deck">Deck department</option>
+                    <option value="engine">Engine department</option>
+                    <option value="catering">Catering department</option>
+                  </select>
+                </td>
+              </tr>
+              <tr class="map-row" data-answer="engine">
+                <td>Oiler</td>
+                <td>
+                  <select aria-label="department for oiler">
+                    <option value="">— Select —</option>
+                    <option value="deck">Deck department</option>
+                    <option value="engine">Engine department</option>
+                    <option value="catering">Catering department</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mapping-actions">
+          <button class="btn" id="checkMapping">Check My Mapping</button>
+          <button class="btn secondary" id="resetMapping">Reset</button>
+          <span class="mapping-result" id="mappingResult" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="simulation" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">🖥️</span>
+      <h2>Simulation: Crew Change Uncertainty</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <span class="safety-flag">⚠ Simulation only — no real vessel, port, or company data</span>
+    <p>A crew change looks simple on paper: fly relief crew in, fly outgoing crew home. Toggle each real-world complication below to see why it's rarely that simple.</p>
+    <div class="activity-block">
+      <div class="activity-body">
+        <div class="sim-controls" role="group" aria-label="Crew-change risks">
+          <button type="button" class="sim-toggle" data-conn="relief" aria-pressed="false">Relief officer's visa is delayed</button>
+          <button type="button" class="sim-toggle" data-conn="congestion" aria-pressed="false">Port call is delayed by congestion</button>
+          <button type="button" class="sim-toggle" data-conn="weather" aria-pressed="false">Weather reroutes the ship</button>
+          <button type="button" class="sim-toggle" data-conn="shortage" aria-pressed="false">Relief crew pool is short-staffed</button>
+        </div>
+        <div class="sim-meter-wrap">
+          <div class="sim-meter-label"><span>Certainty of Signing Off on Schedule</span><span id="simMeterValue">100%</span></div>
+          <div class="sim-meter-track"><div class="sim-meter-fill" id="simMeterFill" style="width:100%;"></div></div>
+        </div>
+        <div class="sim-readout" id="simReadout" aria-live="polite">
+          <strong>Starting state:</strong> on paper, a scheduled crew change at a named port on a named date looks completely reliable. Add real-world risks below to see how that certainty erodes.
+        </div>
+        <div class="mapping-actions">
+          <button class="btn secondary" id="simReset">Reset Simulation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" class="module">
+    <div class="module-head">
+      <span class="module-icon" aria-hidden="true">✅</span>
+      <h2>Review &amp; Knowledge Check</h2>
+      <span class="module-time">≈ 15 min</span>
+    </div>
+    <p>Five questions covering the lesson's key distinctions. Answer each, then select <strong>Grade My Quiz</strong> to see your score and an explanation for every item.</p>
+    <div class="quiz-block" id="quizBlock">
+
+      <div class="q-card" data-answer="b" data-fb-correct="The chief officer is second-in-command in the deck department, responsible for cargo operations among other duties." data-fb-incorrect="The chief engineer leads the engine department, the bosun supervises ratings, and the third officer is a junior watchkeeper \u2014 the chief officer is deck's second-in-command.">
+        <div class="q-stem"><span class="q-num">Q1.</span>Who is second-in-command in the deck department, typically responsible for cargo and deck operations?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q1" value="a"> The chief engineer</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="b"> The chief officer</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="c"> The bosun</label></li>
+          <li class="q-opt"><label><input type="radio" name="q1" value="d"> The third officer</label></li>
+        </ul>
+        <div class="q-feedback" id="fb1"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Fixed-term contracts followed by sign-off, leave, and a new contract (often on a different vessel) is the standard employment pattern." data-fb-incorrect="Seafarers are rarely tied permanently to one vessel or employed by a flag state directly \u2014 fixed-term contracts with rotation are the norm.">
+        <div class="q-stem"><span class="q-num">Q2.</span>What best describes how most seafarers are employed?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q2" value="a"> As permanent employees tied to one specific vessel indefinitely</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="b"> As unpaid trainees until reaching officer rank</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="c"> Under fixed-term contracts, commonly four to nine months, followed by leave before the next contract</label></li>
+          <li class="q-opt"><label><input type="radio" name="q2" value="d"> Only as government employees of their flag state</label></li>
+        </ul>
+        <div class="q-feedback" id="fb2"></div>
+      </div>
+
+      <div class="q-card" data-answer="a" data-fb-correct="A Certificate of Competency ties directly to rank and vessel scope, based on internationally agreed STCW minimum standards." data-fb-incorrect="Pay, flag-state assignment, and internet access are separate matters \u2014 the certificate specifically governs rank and vessel-scope qualification.">
+        <div class="q-stem"><span class="q-num">Q3.</span>What does a Certificate of Competency under STCW actually determine?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q3" value="a"> Which rank, vessel tonnage/engine power range, and often trading area a seafarer is legally qualified to work in</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="b"> How much a seafarer is paid</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="c"> Which flag state a seafarer must work for</label></li>
+          <li class="q-opt"><label><input type="radio" name="q3" value="d"> Whether a seafarer is entitled to satellite internet access</label></li>
+        </ul>
+        <div class="q-feedback" id="fb3"></div>
+      </div>
+
+      <div class="q-card" data-answer="d" data-fb-correct="The MLC sets baseline living and working condition standards for seafarers, sometimes called the &quot;seafarers' bill of rights.&quot;" data-fb-incorrect="Construction, cargo stowage, and PSC procedures are covered elsewhere (SOLAS, Lesson 5, and Lesson 7) \u2014 the MLC is about seafarer living and working conditions.">
+        <div class="q-stem"><span class="q-num">Q4.</span>What does the Maritime Labour Convention (MLC), 2006 primarily address?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q4" value="a"> Vessel construction standards</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="b"> Cargo stowage requirements</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="c"> Port state control inspection procedures</label></li>
+          <li class="q-opt"><label><input type="radio" name="q4" value="d"> Minimum living and working conditions for seafarers, including accommodation, food, rest hours, and repatriation</label></li>
+        </ul>
+        <div class="q-feedback" id="fb4"></div>
+      </div>
+
+      <div class="q-card" data-answer="c" data-fb-correct="Manning agents are recruitment intermediaries connecting seafarers with the shipowners or managers who need crew \u2014 not owners, standard-setters, or inspectors themselves." data-fb-incorrect="Vessel ownership, STCW standard-setting, and PSC inspection are separate roles \u2014 manning agents specifically handle recruitment and placement.">
+        <div class="q-stem"><span class="q-num">Q5.</span>What role do crew manning agents typically play?</div>
+        <ul class="q-opts">
+          <li class="q-opt"><label><input type="radio" name="q5" value="a"> They own the vessels seafarers work aboard</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="b"> They set international STCW training standards</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="c"> They act as an intermediary recruiting and placing seafarers with shipowners or managers</label></li>
+          <li class="q-opt"><label><input type="radio" name="q5" value="d"> They perform port state control inspections</label></li>
+        </ul>
+        <div class="q-feedback" id="fb5"></div>
+      </div>
+
+    </div>
+    <div class="mapping-actions">
+      <button class="btn" id="gradeQuiz">Grade My Quiz</button>
+      <button class="btn secondary" id="resetQuiz">Reset Quiz</button>
+    </div>
+    <div class="quiz-score" id="quizScore">
+      <span class="quiz-score-big" id="quizScoreBig">0 / 5</span>
+      <span id="quizScoreText"></span>
+    </div>
+
+    <div class="teach-note" style="margin-top:26px;">
+      <span class="teach-label">Suggested assessment artifact</span>
+      <p>Have each learner write a short paragraph describing what they imagine a typical day would involve for one specific rank from this lesson (their choice), including at least one welfare consideration (contract length, connectivity, or time away from home) that would realistically affect that person.</p>
+    </div>
+  </section>
+
+  <section id="further-reading" class="module">
+    <div class="module-head"><span class="module-icon" aria-hidden="true">📚</span><h2>Further Reading</h2></div>
+    <ul class="resource-list">
+      <li><a href="https://www.ilo.org/global/standards/maritime-labour-convention/lang--en/index.htm" target="_blank" rel="noopener noreferrer">ILO — Maritime Labour Convention, 2006</a> — the full text and background of the convention introduced in Section 4.</li>
+      <li><a href="https://www.imo.org/en/OurWork/HumanElement/Pages/Seafarers%27Rights.aspx" target="_blank" rel="noopener noreferrer">IMO — Seafarers and the Human Element</a> — IMO context on seafarer welfare and the human element in maritime safety.</li>
+    </ul>
+  </section>
+
+  <nav class="lesson-nav-bottom" aria-label="Lesson navigation">
+    <a class="nav-btn" href="lesson08.html">← Lesson 8: Key Maritime Conventions</a>
+    <a class="nav-btn" href="lesson10.html">Lesson 10: Maritime Commerce &amp; Chartering →</a>
+  </nav>
+
+</main>
+
+<aside class="sidebar" aria-label="Lesson tools">
+
+  <div class="card">
+    <div class="sidebar-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Lesson Overview</a></li>
+      <li><a href="#s1">Departments &amp; Ranks</a></li>
+      <li><a href="#s2">Contracts &amp; Rotation</a></li>
+      <li><a href="#s3">STCW &amp; Career Progression</a></li>
+      <li><a href="#s4">Welfare Aboard</a></li>
+      <li><a href="#s5">Recruitment</a></li>
+      <li><a href="#activity">Activity</a></li>
+      <li><a href="#simulation">Simulation</a></li>
+      <li><a href="#review">Review</a></li>
+      <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Objectives Progress</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 5 checked off</div>
+    <ul class="lo-list" id="loList" role="group" aria-label="Learning objectives checklist">
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo1"><label for="lo1">Describe the basic department and rank structure aboard a merchant vessel.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo2"><label for="lo2">Explain how seafarer contracts and rotation periods typically work.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo3"><label for="lo3">Explain how STCW certification determines which ranks and roles a seafarer can hold.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo4"><label for="lo4">Describe common welfare challenges aboard and the standards that address them.</label></li>
+      <li class="lo-item"><input type="checkbox" class="lo-check" id="lo5"><label for="lo5">Explain the basic role crew manning agents play in seafarer recruitment.</label></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Key Terms</div>
+    <ul class="glossary-list">
+      <li><a href="#s1"><span class="glossary-term">Chief Officer</span></a><span class="glossary-def">The second-in-command deck officer, typically responsible for cargo and deck operations.</span></li>
+      <li><a href="#s2"><span class="glossary-term">Sign Off</span></a><span class="glossary-def">The point at which a seafarer's contract ends and they leave the vessel, usually at a scheduled crew change.</span></li>
+      <li><a href="#s3"><span class="glossary-term">Certificate of Competency</span></a><span class="glossary-def">An STCW credential tied to a specific rank, vessel scope, and often trading area.</span></li>
+      <li><a href="#s4"><span class="glossary-term">MLC, 2006</span></a><span class="glossary-def">The Maritime Labour Convention, setting minimum living and working condition standards for seafarers.</span></li>
+      <li><a href="#s5"><span class="glossary-term">Crew Manning Agent</span></a><span class="glossary-def">An agency that recruits and places seafarers with shipowners or ship managers.</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sidebar-title">Lesson Navigation</div>
+    <div class="prevnext-links">
+      <a href="lesson08.html">← Previous: Lesson 8: Key Maritime Conventions</a>
+      <a href="lesson10.html">Next: Lesson 10: Maritime Commerce &amp; Chartering →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  Lesson 9 · Day 4 · Life Aboard &amp; Crewing<br>
+  Maritime Operations &amp; Industry Fundamentals &nbsp;|&nbsp; Curriculum by <a href="profile.html">Clark Ngo</a><br>
+  Educational use only. A prerequisite-level industry primer &mdash; no live-vessel, live-port, or company-specific data is used.
+</footer>
+
+<script>
+
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('themeBtn');
+    if (btn) { btn.textContent = (theme === 'dark') ? '\u2600\ufe0f Light' : '\ud83c\udf19 Dark'; }
+    try { localStorage.setItem('mof-theme', theme); } catch (e) {}
+  }
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('mof-theme'); } catch (e) {}
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+  })();
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#sectionNav a'));
+  var sections = navLinks.map(function (a) { return document.getElementById(a.getAttribute('data-section')); }).filter(Boolean);
+  function updateActiveSection() {
+    var scrollPos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) { if (sec.offsetTop <= scrollPos) activeIdx = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('active', i === activeIdx); });
+  }
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  updateActiveSection();
+
+  var loChecks = Array.prototype.slice.call(document.querySelectorAll('.lo-check'));
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+  function updateProgress() {
+    var checkedCount = loChecks.filter(function (c) { return c.checked; }).length;
+    var pct = Math.round((checkedCount / loChecks.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = checkedCount + ' of ' + loChecks.length + ' checked off';
+    loChecks.forEach(function (c) { c.closest('.lo-item').classList.toggle('done', c.checked); c.setAttribute('aria-checked', c.checked ? 'true' : 'false'); });
+  }
+  loChecks.forEach(function (c) { c.setAttribute('role', 'checkbox'); c.addEventListener('change', updateProgress); });
+  updateProgress();
+
+  var mappingRows = Array.prototype.slice.call(document.querySelectorAll('#mappingTable .map-row'));
+  var mappingResult = document.getElementById('mappingResult');
+  var checkMappingBtn = document.getElementById('checkMapping');
+  if (checkMappingBtn) {
+    checkMappingBtn.addEventListener('click', function () {
+      var correctCount = 0, totalAnswered = 0;
+      mappingRows.forEach(function (row) {
+        var select = row.querySelector('select');
+        var correctVal = row.getAttribute('data-answer');
+        row.classList.remove('correct', 'incorrect');
+        if (!select.value) return;
+        totalAnswered++;
+        if (select.value === correctVal) { row.classList.add('correct'); correctCount++; }
+        else { row.classList.add('incorrect'); }
+      });
+      mappingResult.textContent = correctCount + ' of ' + mappingRows.length + ' correct' + (totalAnswered < mappingRows.length ? ' (some rows left unanswered)' : '');
+    });
+    document.getElementById('resetMapping').addEventListener('click', function () {
+      mappingRows.forEach(function (row) { row.querySelector('select').value = ''; row.classList.remove('correct', 'incorrect'); });
+      mappingResult.textContent = '';
+    });
+  }
+
+  var quizCards = Array.prototype.slice.call(document.querySelectorAll('#quizBlock .q-card'));
+  document.getElementById('gradeQuiz').addEventListener('click', function () {
+    var correctCount = 0;
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      var name = 'q' + qNum;
+      var selected = card.querySelector('input[name="' + name + '"]:checked');
+      var fb = document.getElementById('fb' + qNum);
+      var correctVal = card.getAttribute('data-answer');
+      var okText = card.getAttribute('data-fb-correct');
+      var noText = card.getAttribute('data-fb-incorrect');
+      fb.className = 'q-feedback show';
+      if (!selected) { fb.classList.add('unanswered'); fb.textContent = 'Not answered \u2014 select an option above, then grade again.'; return; }
+      if (selected.value === correctVal) { fb.classList.add('correct'); fb.textContent = '\u2713 Correct \u2014 ' + okText; correctCount++; }
+      else { fb.classList.add('incorrect'); fb.textContent = '\u2717 Not quite \u2014 ' + noText; }
+    });
+    var scoreBox = document.getElementById('quizScore');
+    var scoreBig = document.getElementById('quizScoreBig');
+    var scoreText = document.getElementById('quizScoreText');
+    scoreBox.classList.add('show');
+    scoreBig.textContent = correctCount + ' / ' + quizCards.length;
+    scoreText.textContent = correctCount === quizCards.length ? 'All five \u2014 you are ready for the next lesson.' : (correctCount >= 3 ? 'Solid grasp \u2014 review the items you missed before moving on.' : 'Worth a re-read of the sections above before moving on.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click', function () {
+    quizCards.forEach(function (card, i) {
+      var qNum = i + 1;
+      card.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+      var fb = document.getElementById('fb' + qNum);
+      fb.className = 'q-feedback';
+      fb.textContent = '';
+    });
+    document.getElementById('quizScore').classList.remove('show');
+  });
+
+
+  var simState = { relief: false, congestion: false, weather: false, shortage: false };
+  var simMessages = {
+    relief: "Visa delay added: the relief officer cannot travel to the handover port on schedule, and the outgoing officer's sign-off has to wait for them to arrive.",
+    congestion: "Port congestion added: the ship's actual arrival time slips, which can mean missing a relief crew member's already-booked flight.",
+    weather: "Weather reroute added: if the ship diverts to a different port entirely, relief crew travel arrangements booked for the original port may need to be rebuilt from scratch.",
+    shortage: "Relief crew shortage added: even with travel arranged, no qualified relief officer may be available at all, extending the outgoing officer's contract involuntarily."
+  };
+  var simMeterFill = document.getElementById('simMeterFill');
+  var simMeterValue = document.getElementById('simMeterValue');
+  var simReadout = document.getElementById('simReadout');
+  function updateSim() {
+    var activeCount = Object.keys(simState).filter(function (k) { return simState[k]; }).length;
+    var pct = 100 - (activeCount * 25);
+    simMeterFill.style.width = pct + '%';
+    simMeterValue.textContent = pct + '%';
+    simMeterFill.style.background = pct >= 75 ? 'var(--ok)' : (pct >= 50 ? 'var(--accent)' : 'var(--bad)');
+    if (activeCount === 0) {
+      simReadout.innerHTML = '<strong>Starting state:<\/strong> on paper, a scheduled crew change at a named port on a named date looks completely reliable. Add real-world risks below to see how that certainty erodes.';
+    } else {
+      var lastKey = Object.keys(simState).filter(function (k) { return simState[k]; }).slice(-1)[0];
+      var html = '<strong>Just selected:<\/strong> ' + simMessages[lastKey];
+      if (activeCount === 4) {
+        html += '<br><br><strong>Result:<\/strong> all four risks are now active. None of them is exotic \u2014 visa delays, port congestion, weather, and staffing shortages are all routine parts of global logistics \u2014 but stacked together they explain why crew welfare organizations treat reliable, on-time crew changes as a genuine, ongoing industry challenge rather than a solved logistics problem.';
+      }
+      simReadout.innerHTML = html;
+    }
+  }
+  document.querySelectorAll('.sim-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-conn');
+      simState[key] = !simState[key];
+      btn.setAttribute('aria-pressed', simState[key] ? 'true' : 'false');
+      updateSim();
+    });
+  });
+  document.getElementById('simReset').addEventListener('click', function () {
+    Object.keys(simState).forEach(function (k) { simState[k] = false; });
+    document.querySelectorAll('.sim-toggle').forEach(function (btn) { btn.setAttribute('aria-pressed', 'false'); });
+    updateSim();
+  });
+  updateSim();
+
+})();
+</script>
+</body>
+</html>
